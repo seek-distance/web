@@ -1,0 +1,50 @@
+/* CSS Document */
+#m_main{
+	width:1000px;
+	margin:20px auto;
+	height:650px;
+}
+.message{
+	width:904px;
+	height:600px;
+	background:#964242;
+	margin:0 auto;
+	border-radius:10px;
+}
+.top li,.top{
+	float:left;
+}
+#m_main a{
+	display:block;
+	color:#fff;
+	text-decoration:none;
+	width:450px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:20px;
+	background:#710c0c;
+	margin-right:2px;
+	border-radius:10px;
+}
+#m_main a:hover,#m_main .on{
+	background:#E58f69;
+	color:#ce2e28;
+}
+.mes{
+	padding-top:30px;
+	clear:both;
+	padding-left:150px;
+}
+#mes1 a,#mes2 a{
+	margin:0 0 50px 60px;
+	background:#fff;
+	color:#000;
+}
+#mes1 a:hover,#mes2 a:hover{
+	background:#069;
+	color:#fff;
+}
+.mesout{
+	display:none;
+}

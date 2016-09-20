@@ -1,0 +1,119 @@
+/* CSS Document */
+*{margin:0;padding:0;}
+*,*:after,*:before{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-o-box-sizing:border-box;
+}
+body{
+	width:100%;
+	height:100%;
+	background:#47c9af;
+	color:#74777b;
+	font-weight:500;
+	font-size:1em;
+	font-family:'Raleway',Arial,sans-serif;
+}
+.clearfix:before,.clearfix:after{
+	content:"";
+	display:block;
+}
+.clearfix:after{
+	clear:both;
+}
+.nav{
+	width:820px;
+	margin:200px auto 0;
+}
+li{
+	font-size:1.5em;
+	font-weight:700;
+	list-style:none;
+	float:left;
+	margin:30px;
+}
+.tooltip{
+	text-decoration:none;
+	color:rgba(0,0,0,0.3);
+	position:relative;
+}
+.tooltip:hover{
+	color:#FFF;
+}
+.tooltip-content{
+	position:absolute;
+	width:80px;
+	height:80px;
+	border-radius:50%;
+	left:50%;
+	margin-left:-40px;
+	background:#fff;
+	bottom:100%;
+	margin-bottom:20px;
+	padding:30px 25px;
+	opacity:0;
+	transition:0.3s;
+}
+.tooltip-content::after{
+	content:"";
+	background:url(../img/tooltip1.svg) no-repeat center center;
+	background-size:100%;
+	width:30px;
+	height:20px;
+	position:absolute;
+	top:100%;
+	left:50%;
+	margin:-7px 0 0 -15px;
+}
+.tooltip-content i{
+	color:#47c9af;
+}
+.tooltip-effect-1 .tooltip-content{
+	transform:rotate3d(1,1,1,45deg) translate3d(0,10px,0);
+	transform-origin:center bottom;
+	-webkit-transform:rotate3d(1,1,1,45deg) -webkit-translate3d(0,10px,0);
+	-webkit-transform-origin:center bottom;
+}
+.tooltip-effect-1 .tooltip-content i{
+	transform:scale(0);
+	-webkit-transform:scale(0);
+}
+.tooltip-effect-2 .tooltip-content{
+	transform:translate3d(0,20px,0);
+	-webkit-transform:-webkit-translate3d(0,20px,0);
+}
+.tooltip-effect-2 .tooltip-content i{
+	transform:translate3d(0,10px,0);
+	-webkit-transform:translate3d(0,10px,0);
+}
+.tooltip-effect-3 .tooltip-content{
+	transform:translate3d(0,10px,0) rotate3d(0,1,0,90deg);
+	-webkit-transform:-webkit-translate3d(0,10px,0) rotate3d(0,1,0,90deg);
+}
+.tooltip-effect-3 .tooltip-content i{
+	transform:scale(0);
+	-webkit-transform:scale(0);
+}
+.tooltip-effect-4 .tooltip-content{
+	transform:translate3d(0,-15px,0);
+	-webkit-transform:-webkit-translate3d(0,-15px,0);
+}
+.tooltip-effect-4 .tooltip-content i{
+	transform:translate3d(0,15px,0);
+	-webkit-transform:translate3d(0,15px,0);
+}
+.tooltip-effect-5 .tooltip-content{
+	transform:scale(0);
+	-webkit-transform:scale(0);
+	transform-origin:center bottom;
+	-webkit-transform-origin:center bottom
+}
+.item:hover .tooltip-content,.item:hover .tooltip-content i{
+	transform:rotate3d(1,1,1,0) translate3d(0,0,0) scale(1);
+	-webkit-transform:rotate3d(1,1,1,0) translate3d(0,0,0) scale(1);
+	opacity:1;
+}
+
+
+

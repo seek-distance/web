@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制星星</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		var context=canvas.getContext('2d');
+
+		canvas.width=800;
+		canvas.height=800;
+
+		context.lineWidth=10;
+		context.lineJoin='round';
+		context.miterLimit=20;
+		drawStar(context,30,300,400,400,1550);
+
+		function drawStar(cxt,r,R,x,y,rot){
+			cxt.beginPath();
+			for (var i = 0; i < 5; i++) {
+				cxt.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,-Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+				cxt.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,-Math.sin((54+i*78-rot)/180*Math.PI)*r+y);
+			}
+			cxt.closePath();
+			cxt.stroke();
+		}
+	</script>
+</body>
+</html>

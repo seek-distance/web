@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="YES" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 100%;
+			background-color: #333;
+			overflow: hidden;
+			position: relative;
+		}
+		.wrap li{
+			position: absolute;
+			height: 100%;
+			display: -webkit-box;
+			-webkit-box-pack: center;
+			-webkit-box-align: center;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="mybox">
+		<ul class="wrap"></ul>
+	</div>
+	<script>
+		var list = [{
+			height: 950,
+			width: 800,
+			img: "imgs/1.jpg"
+		},
+		{
+			height: 1187,
+			width: 900,
+			img: "imgs/2.jpg"
+		},
+		{
+			height: 766,
+			width: 980,
+			img: "imgs/3.jpg"
+		},
+		{
+			height: 754,
+			width: 980,
+			img: "imgs/4.jpg"
+		},
+		{
+			height: 493,
+			img: "imgs/5.jpg",
+			width: 750
+		},
+		{
+			height: 500,
+			img: "imgs/6.jpg",
+			width: 750
+		},
+		{	
+			height: 600,
+			img: "imgs/7.jpg",
+			width: 400
+		}];
+
+		var slider=function(opt){
+			this.box = opt.dom;
+			this.list = opt.list;
+			this.wrap = this.box.getElementsByClassName('wrap')[0];
+			this.scale = window.innerHeight/window.innerWidth;
+			this.index = 0;
+			this.winW = window.innerWidth;
+			this.winH = window.innerHeight;
+			console.log(this.scale);
+
+			this.setBox();
+			this.bindDom();
+		}
+		slider.prototype={
+			setBox:function(){
+				this.wrap.style.height = window.innerHeight+'px';
+				for (var i = 0; i < this.list.length; i++) {
+					var li = document.createElement('li');
+					if (this.list[i].height/this.list[i].width > this.scale) {
+						li.innerHTML = '<img src = "'+ this.list[i].img +'" style="height:'+ this.winH +'px;"></img>';
+					}else{
+						li.innerHTML = '<img src = "'+ this.list[i].img +'" style="width:'+ this.winW +'px;"></img>';
+					}
+					this.wrap.appendChild(li);
+					li.style.webkitTransform = 'translateX('+ i*this.winW + 'px)';
+				}
+				this.lis = this.wrap.getElementsByTagName('li');
+			},
+			bindDom:function(){
+				var self=this;
+				this.wrap.addEventListener('touchstart',function(e){
+					self.startTime = new Date() * 1;
+					self.startX = e.touches[0].pageX;
+				});
+				this.wrap.addEventListener('touchmove',function(e){
+					self.offsetX = e.touches[0].pageX-self.startX;	
+					var i = self.index-1;
+					var m = i+3;
+					for (i; i < m; i++) {
+						self.lis[i] && (self.lis[i].style.transition = '0s');
+						self.lis[i] && (self.lis[i].style.webkitTransform = 'translateX('+((i-self.index) * self.winW + self.offsetX)+'px)');
+					}
+				});
+				this.wrap.addEventListener('touchend',function(e){
+					var boundary = parseInt(self.winW)/6;
+					self.endTime = new Date() * 1;
+					if (self.endTime - self.startTime>300) {
+						if (self.offsetX >= boundary) {
+							self.goIndex(-1);
+						}else if (self.offsetX < 0 && self.offsetX < -boundary) {
+							self.goIndex(1);
+						}else{
+							self.goIndex(0);
+						}
+					}else{
+						if (self.offsetX > 50) {
+							self.goIndex(-1);
+						}else if (self.offsetX < -50) {
+							self.goIndex(1);
+						}else{
+							self.goIndex(0);
+						}
+					}
+				});
+			},
+			goIndex:function(i){
+				if (i==1) {
+					if(this.index < this.lis.length - 1){
+						this.lis[this.index].style.transition = '0.3s ease-out';
+						this.lis[this.index].style.webkitTransform = 'translateX('+(-this.winW)+'px)';
+						this.lis[this.index+1].style.transition = '0.3s ease-out';
+						this.lis[this.index+1].style.webkitTransform = 'translateX(0px)';	
+						this.index = this.index+1;					
+					}else{
+						this.goIndex(0);
+					}
+				}else if (i==-1) {
+					if(this.index>0){						
+						this.lis[this.index].style.transition = '0.3s ease-out';
+						this.lis[this.index].style.webkitTransform = 'translateX('+(this.winW)+'px)';
+						this.lis[this.index-1].style.transition = '0.3s ease-out';
+						this.lis[this.index-1].style.webkitTransform = 'translateX(0px)';	
+						this.index=this.index-1;
+					}else{
+						this.goIndex(0);
+					}
+				}else if (i==0) {
+					this.lis[this.index].style.transition = '0.3s ease-out';
+					this.lis[this.index].style.webkitTransform = 'translateX(0px)';		
+					this.lis[this.index+1] && (this.lis[this.index+1].style.transition = '0.3s ease-out');
+					this.lis[this.index+1] && (this.lis[this.index+1].style.webkitTransform = 'translateX('+this.winW+'px)');
+					this.lis[this.index-1] && (this.lis[this.index-1].style.transition = '0.3s ease-out');
+					this.lis[this.index-1] && (this.lis[this.index-1].style.webkitTransform = 'translateX('+(-this.winW)+'px)');
+				}
+			},
+		};
+		new slider({
+			dom:document.getElementById('mybox'),
+			list:list
+		});
+	</script>
+</body>
+</html>

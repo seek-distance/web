@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>粒子运动</title>
+	<style>
+		*{margin: 0;padding: 0;}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var image={},particles=[];
+		var canvas=document.getElementById('canvas');
+		cvsW=canvas.width=document.documentElement.clientWidth-10;
+		cvsH=canvas.height=document.documentElement.clientHeight-10;
+
+		var ctx=canvas.getContext('2d');
+
+		//新建一个image对象
+		var img=new Image();
+		img.onload=function(){
+
+			//把图像信息保存在image里面
+			image.obj=img;
+			image.w=img.width;
+			image.h=img.height;
+			image.x=parseInt(cvsW/2-image.w/2);
+			image.y=200;
+
+			//把加载完的图像绘制到画布上
+			ctx.drawImage(image.obj,image.x,image.y,image.w,image.h);
+			image.imageData=ctx.getImageData(image.x,image.y,image.w,image.h);
+
+			//计算出符合要求的像素
+			calculate();
+			console.log(particles);
+			//计算后绘到画布上
+			draw();
+		};
+
+		//设置image的source
+		img.src='image/isux1.png';
+
+		function calculate(){
+			//只保存100行，100列的像素值
+			var cols=100,rows=100;
+			//设成150行，100列后每个单元的宽高
+			var s_width=parseInt(image.w/cols);
+			var s_height=parseInt(image.h/rows);
+			var pos=0;	//数组中的位置
+			var data=image.imageData.data;	//像素值数组
+			for (var i = 0; i < cols; i++) {
+				for (var j = 0; j < rows; j++) {
+					//计算（i,j）在数组中的R的坐标值
+					pos=(j*s_height*image.w+i*s_width)*4;
+					//判断像素透明度值是否符合要求
+					if(data[pos+3]>100){
+						var particle={
+							//x,y值随机一下
+							x:image.x+i*s_width+(Math.random()-0.5)*20,
+							y:image.y+j*s_width+(Math.random()-0.5)*20
+						};
+						if (data[pos+1]<175 && data[pos+2]<10) {
+							particle.fillStyle='#ffa900';
+						}else if(data[pos+1]<75 && data[pos+1]>50){
+							particle.fillStyle='#ff4085';
+						}else if (data[pos+1]<220 && data[pos+1]>190) {
+							particle.fillStyle='#00cfff';
+						}else if (data[pos+1]<195 && data[pos+1]>175) {
+							particle.fillStyle='#9abc1c';
+						}
+						//符合要求的例子保存在数组里面
+						particles.push(particle);
+					}
+				}
+			}
+		}
+
+		//绘图
+		function draw(){
+			//清楚画布
+			ctx.clearRect(0,0,cvsW,cvsH);
+
+			ctx.fillStyle='#0c1328';
+			ctx.fillRect(0,0,2000,2000);
+
+			var len=particles.length;
+			var curr_particle=null;
+			for (var i = 0; i < len; i++) {
+				curr_particle=particles[i];
+
+				ctx.fillStyle=curr_particle.fillStyle;
+				ctx.fillRect(curr_particle.x,curr_particle.y,1,1)
+			}
+
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			var context=canvas.getContext('2d');
+
+		 	canvas.width=800;
+		 	canvas.height = 800;
+
+		 	drawRect(context,100,100,400,400,10,'#058','red');
+		 	drawRect2(context,300,300,400,400,10,'#058','rgba(0,256,0,0.5)');
+	 	}
+	 	function drawRect(cxt,x,y,width,height,borderWidth,borderColor,fillColor){
+	 		cxt.beginPath();
+	 		cxt.rect(x,y,width,height);
+	 		cxt.closePath();
+
+	 		cxt.lineWidth=borderWidth;
+	 		cxt.fillStyle=fillColor;
+	 		cxt.strokeStyle=borderColor;
+
+	 		cxt.fill();
+	 		cxt.stroke();
+	 	}
+	 	function drawRect2(cxt,x,y,width,height,borderWidth,borderColor,fillColor){
+	 		cxt.lineWidth=borderWidth;
+	 		cxt.fillStyle=fillColor;
+	 		cxt.strokeStyle=borderColor;
+
+	 		cxt.fillRect(x,y,width,height);
+	 		cxt.strokeRect(x,y,width,height);
+	 	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body,ul,ol{padding:0; margin:0;}
+#wrap{width:800px; height:360px; position:relative; margin:100px auto; overflow:hidden;  }
+#list {list-style:none; position:absolute; width:400%; height:360px;transition:1s}
+#list li{float:left; width:800px; height:360px; }
+#btn {list-style:none; position:absolute; right:10px; bottom:15px}
+#btn li{float:left; width:30px; height:30px; border-radius:50%; background:black; color:white; margin:0 10px; font:20px/30px '宋体'; text-align:center}
+#btn #active{background:white; color:black}
+</style>
+<script>
+window.onload=function()
+{
+	var list=document.getElementById('list');
+	var btn=document.getElementById('btn');
+	var li=btn.getElementsByTagName('li');
+	
+	for(var i=0; i<li.length; i++)
+	{
+		li[i].index=i
+		li[i].onmouseover=function()
+		{
+			clearInterval(time);
+			for(var i=0; i<li.length; i++)
+			{
+				li[i].id=''
+			}
+			this.id='active'
+			list.style.left=-800*this.index+'px'
+			
+		}
+		li[i].onmouseout=function()
+		{
+			var This=this;
+			var i=This.index;
+			i=This.index+1;
+			if(i==4)	i=0;
+			console.log(i);
+			
+			time=setInterval(function(){
+				auto(i);
+				if(i>2)
+				{
+					i=0;
+				}
+				else
+				{
+					i++;
+				}
+			},2000)
+		}
+	}
+	
+	var i=0;
+	auto(i);   //优化图1与图二的切换
+	i++;
+	var time=setInterval(function(){
+			auto(i);
+			if(i>2)
+			{
+				i=0;
+			}
+			else
+			{
+				i++;
+			}
+		},2000);
+	
+	function auto(i)
+	{
+		var li=btn.getElementsByTagName('li');
+		
+		
+		for(var n=0; n<4; n++)
+		{
+			li[n].id=''
+		}
+		
+		li[i].id='active'
+		list.style.left=-800*i+'px'
+		
+	}
+}	
+
+</script>
+</head>
+
+<body>
+<div id="wrap">
+  <ul id="list">
+    <li><img src="3d-image/1.jpg" /></li>
+    <li><img src="3d-image/2.jpg" /></li>
+    <li><img src="3d-image/3.jpg" /></li>
+    <li><img src="3d-image/4.jpg" /></li>
+  </ul>
+  <ol id="btn">
+    <li id="active">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ol>
+</div>
+</body>
+</html>

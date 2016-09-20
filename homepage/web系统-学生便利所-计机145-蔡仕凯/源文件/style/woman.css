@@ -1,0 +1,48 @@
+.main{
+	width:1000px;
+	margin:0 auto;
+}
+.main .drink,.main .fruit,.main .snake{
+	border:1px dashed #ccc;
+	padding:0 70px;
+	border-radius:15px;
+	margin-bottom:10px;
+}
+.main h2{
+	height:30px;
+	padding-top:50px;
+	color:#ce2e28;
+}
+.main img{
+	margin:20px;
+	border:1px solid #999;
+	border-radius:10px;
+	box-shadow:0 0 10px #666;
+	padding:5px;
+}
+#menu{
+	position:fixed;
+	bottom:60px;
+	left:50%;
+	margin-left:510px;
+}
+#menu li{
+	height:45px;
+	width:80px;
+	background:#964242;
+	margin-bottom:5px;
+	border:1px solid #964242;
+	border-radius:5px;
+	box-shadow:0 0 5px #ccc;
+}
+#menu li a{
+	display:block;
+	color:#fff;
+	text-align:center;
+	line-height:45px;
+	text-decoration:none;
+}
+#menu li a:hover,#menu li .on{
+	background:#fff;
+	color:#000;
+}

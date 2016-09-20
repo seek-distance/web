@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{background:black;}
+#c1{background:white;}
+</style>
+<script>
+
+window.onload=function()
+{
+	var oC=document.getElementById('c1');//获取对象
+	var oGC=oC.getContext('2d');//绘制环境
+	
+	var num=0
+	
+	oGC.translate(100,100)
+	
+	
+	setInterval(function(){
+		num++;
+		oGC.clearRect(-100,-100,oC.width,oC.height)
+		oGC.save()
+		oGC.rotate(num*Math.PI/180)
+		oGC.translate(-50,-50)
+		oGC.fillRect(0,0,100,100)
+		oGC.restore()
+		},30)
+	
+	}
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="600" height="600"></canvas> <!--默认宽：300px；高150px-->
+</body>
+</html>

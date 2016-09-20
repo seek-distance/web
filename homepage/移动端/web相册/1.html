@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动web相册</title>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.my_pic{
+			list-style: none;
+		}
+		.my_pic li{
+			float: left;
+			overflow: hidden;
+		}
+		.large{
+			position: fixed;
+			top:0;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			display: flex;
+			display: -webkit-flex;
+			-webkit-justify-content:center;
+			-webkit-align-items:center;
+			justify-content:center;
+			align-items:center;
+		}
+		.large_img{
+		}
+	</style>
+	<script src='zepto.min.js'></script>
+</head>
+<body>
+	<ul class="my_pic clearfix"></ul>
+	<div class="large animated fadeInDown">
+		<img class="large_img">
+	</div>
+
+	<script>
+		$('.large').hide();
+		var total=17,
+			padding=2,
+			tpl='',
+			index,
+			liW=($(window).width()-padding*3)/4;
+		for (var i = 1; i <= total; i++) {
+			var p=padding;
+			if(i%4==0){
+				p=0;
+			}
+			tpl+='<li class="img_item" data-id="'+i+'" style="width:'+liW+'px;height:'+liW+'px;margin-right:'+p+'px;padding-top:'+padding+'px;"><img src="img/'+i+'.jpg"></li>'
+		}
+		$('.my_pic').html(tpl);
+		$('.my_pic').delegate('li', 'tap', function(event) {
+			index=$(this).attr('data-id');
+			$('.large').show();
+			$('.large_img').attr('src', 'img/'+index+'.large.jpg');
+			setImg(index);
+		});
+		$('.large').swipeLeft(function(){
+			index++;
+			if(index<=17){
+				setImg(index);
+			}else{
+				index=17;
+			}
+		})
+		$('.large').swipeRight(function(){
+			index--;
+			if(index>0){
+				setImg(index);
+			}else{
+				index=1;
+			}
+		})
+		$('.large').tap(function(){
+			$(this).hide();
+		})
+		function setImg(i){
+			$('.large_img').attr('src', 'img/'+i+'.large.jpg');
+			setTimeout(function(){
+				var picW=$('.large_img').width();
+				var picH=$('.large_img').height();
+				if(picH/picW>1.5){
+					$('.large_img').css({
+						width: 'auto',
+						height: $(window).height()
+					});
+				}else{
+					$('.large_img').css({
+						width: $(window).width(),
+						height: 'auto'
+					});
+				}
+			},1)
+		}
+	</script>
+</body>
+</html>

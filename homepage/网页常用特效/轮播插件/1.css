@@ -1,0 +1,63 @@
+/* CSS Document */
+body,ul,li,div,ol,a,img{
+	margin:0;
+	padding:0;
+}
+.box{
+	margin:100px;
+	position:relative;
+	overflow:hidden;
+}
+.box .pic,.box .pic_num{
+	list-style:none;
+}
+.box img,.box a{
+	display:block;
+}
+.box .btn,.box .pic_num{
+	position:absolute;
+	cursor:pointer;
+}
+.box .btn:hover{
+	background-color:rgba(204,204,204,0.3);
+}
+.box .left_btn{
+	background:url(btn_l.png) no-repeat center center;
+	width:100px;
+	left:0;
+	top:0;
+	display:none;
+}
+.box .right_btn{
+	background:url(btn_r.png) no-repeat center center;
+	width:100px;
+	right:0;
+	top:0;
+	display:none;
+}
+.box:hover .btn{
+	display:block;
+}
+.box .pic_num{
+	left:40%;
+	bottom:5%;
+}
+.box .pic_item,.box .num_item{
+	float:left;
+}
+.box .num_item{
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	color:#fff;
+	background:#F63;
+	text-align:center;
+	line-height:30px;
+	margin-right:3px;
+	font-weight:bold;
+}
+.box .num_item:hover,.box .on{
+	background:#fff;
+	color:#000;
+}
+

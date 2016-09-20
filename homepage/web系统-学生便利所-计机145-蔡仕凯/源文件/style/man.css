@@ -1,0 +1,66 @@
+/* CSS Document */
+.m_top{
+	width:1000px;
+	height:584px;
+	overflow:hidden;
+	position:relative;
+}
+.m_top ul{
+	width:4000px;
+	transition:1s;
+	position:absolute;
+}
+.m_top li{
+	float:left;
+}
+.m_top img{
+	width:1000px;
+}
+.m_top .num{
+	position:absolute;
+	bottom:20px;
+	left:400px;
+}
+.m_top .num a{
+	display:inline-block;
+	background:red;
+	color:white;
+	height:40px;
+	width:40px;
+	line-height:40px;
+	text-align:center;
+	border-radius:25px;
+	border:1px solid #ccc;
+	text-decoration:none;
+}
+.m_top .num .on{
+	background:white;
+	color:black;
+}
+.m_first h2{
+	padding:40px 20px 20px;
+}
+.m_first a{
+	opacity:1;
+}
+.m_first a:hover{
+	opacity:0.7;
+}
+.b_left{
+	float:left;
+}
+.buy .b_center{
+	width:630px;
+	display:inline-block;
+	margin-left:5px;
+}
+.snake .snake_left,.snake .snake_right{
+	width:290px;
+	display:inline-block;
+}
+.drink{
+	margin-bottom:30px;
+}
+.drink img{
+	width:310px;
+}

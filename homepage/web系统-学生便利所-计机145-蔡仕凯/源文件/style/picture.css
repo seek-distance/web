@@ -1,0 +1,28 @@
+/* CSS Document */
+.newscontent{
+	width:1000px;
+	margin:16px auto 0;
+	min-height:800px;
+}
+.main{ 
+	width:1000px;
+	position:relative;
+	margin:0 40px;
+}
+.box{
+	padding:15px 0 0 15px;
+	float:left;
+	transition:3s;
+}
+.pic{
+	padding:10px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	box-shadow:0 0 5px #ccc;
+}
+.pic img{
+	width:165px;height:auto;
+}
+#footer{
+	clear:both;
+}

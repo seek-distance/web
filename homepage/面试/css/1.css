@@ -1,0 +1,73 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:;}
+abbr,acronym{border:0;}
+body{color:#666;background-color:#fff;font:12px/1.5 "微软雅黑",tahoma,arial,'Hiagino Sans GB',宋体,sans-serif;}
+.clearfix:after{content:" ";clear:both; height:0; visibility:hidden;display:block;font-size:0;}
+.clearfix{zoom:1;}
+
+header .navbar{
+	margin: 0;
+}
+.box{
+	position:relative;
+	overflow:hidden;
+}
+.box .pic,.box .pic_num{
+	list-style:none;
+}
+.box img,.box a{
+	display:block;
+}
+.box .mybtn,.box .pic_num{
+	position:absolute;
+	cursor:pointer;
+}
+.box .mybtn:hover{
+	background-color:rgba(204,204,204,0.3);
+}
+.box .left_btn{
+	background:url(img/btn_l.png) no-repeat center center;
+	width:100px;
+	left:0;
+	top:0;
+	display:none;
+}
+.box .right_btn{
+	background:url(img/btn_r.png) no-repeat center center;
+	width:100px;
+	right:0;
+	top:0;
+	display:none;
+}
+.box:hover .mybtn{
+	display:block;
+}
+.box .pic_num{
+	left:50%;
+	bottom:5%;
+	margin-left: -50px;
+}
+.box .pic_item,.box .num_item{
+	float:left;
+}
+.box .num_item{
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	color:#fff;
+	background:#F63;
+	text-align:center;
+	line-height:30px;
+	margin-right:3px;
+	font-weight:bold;
+}
+.box .num_item:hover,.box .on{
+	background:#fff;
+	color:#000;
+}

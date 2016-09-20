@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+@font-face{font-family:iconfont;src:url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.eot);
+src:url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.eot?#iefix) format("embedded-opentype"),
+url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.woff) format("woff"),
+url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.ttf) format("truetype"),
+url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.svg#uxiconfont) format("svg")
+}
+body{font:12px/1.5; tahoma,arial,ans-serif;}
+a{ text-decoration:none;}
+.search-container{ position:relative;}
+.search-tips{float:right;padding:3px 0 0 15px;}
+.search-tips a{color:#6c6c6c;}
+.search-button{float:right;}
+.btn-search{
+	background:url(http://gtms01.alicdn.com/tps/i1/T1qyj8Fc8aXXc4E9bI-400-300.png) no-repeat 0 -200px;
+	width:100px;
+	height:45px;
+	border:0;
+	cursor:pointer;
+}
+.search-common-pannel{
+	height:39px;
+	background:#f50;
+	overflow:hidden;
+	padding:3px 0 3px 77px;
+}
+
+.search-common-pannel input{
+	height:39px;
+	line-height:39px;
+	width:100%;
+	border:0 none;
+	outline:0;
+	background-color:#fff;
+}
+.search-common-pannel i{
+	position:absolute;
+	top:14px;
+	left:86px;
+	z-index:2;
+	color:#ccc;
+}
+.iconfont{
+	font-family:iconfont;
+	font-size:12px;
+	font-size:nomal;
+}
+ul{
+	list-style:none;
+}
+ul,li{margin:0;padding:0;}
+.search-list{
+	position:absolute;
+	top:3px;
+	left:3px;
+	width:72px;
+	height:39px;
+	overflow:hidden;
+	background:#fff;
+	border-left:1px solid #f6f6f6;
+	border-right:1px solid #e5e5e5;
+}
+.search-list li{
+	display:none;
+	height:39px;
+	line-height:39px;
+	overflow:hidden;
+	text-align:center;
+}
+.search-list li a{
+	color:#6c6c6c;
+}
+.search-list .selected{background:#f6f6f6;display:block;}
+.trigger-hover{height:auto;}
+.trigger-hover li{display:block;}
+</style>
+<script>
+window.onload=function(){
+	var getDOM=function(id){
+		return document.getElementById(id);
+	}
+	var addEvent=function(id,event,fn){
+		var el=getDOM(id)||document;
+		if(el.addEventListener){
+			el.addEventListener(event,fn,false);
+		}else{
+			el.attachEvent('on'+event,fn);
+		}
+	}
+	
+	addEvent('search_tab','mouseover',function(){
+		this.className+=' trigger-hover';
+	});
+	addEvent('search_tab','mouseout',function(){
+		this.className='search-list';
+	});
+	
+	addEvent('tab_1','mouseover',function(){
+		if(this.className.indexOf('selected')<0){
+			this.className+=' selected';
+		}
+	});
+	addEvent('tab_1','mouseout',function(){
+		this.className='';
+	});
+	addEvent('tab_1','click',function(){
+		if(this.className.indexOf('selected')<0){
+			this.className+=' selected';
+		}
+		getDOM('tab_2').className='';
+		getDOM('search_tab').className='search-list';
+	});
+	
+	addEvent('tab_2','mouseover',function(){
+		if(this.className.indexOf('selected')<0){
+			this.className+=' selected';
+		}
+	});
+	addEvent('tab_2','mouseout',function(){
+		this.className='';
+	});
+	addEvent('tab_2','click',function(){
+		if(this.className.indexOf('selected')<0){
+			this.className+=' selected';
+		}
+		getDOM('tab_1').className='';
+		getDOM('search_tab').className='search-list';
+	})
+}
+</script>
+
+</head>
+
+<body>
+<div class="search-container">
+	<div class="search-list" id="search_tab">
+		<ul>
+			<li id="tab_1" class="selected"><a href="#">宝贝</a></li>
+			<li id="tab_2"><a href="#">店铺</a></li>
+		</ul>
+	</div>
+	<div class="search-pannel">
+		<form>
+			<div class="search-tips">
+				<a href="#">高级<br />搜索</a>
+			</div>
+			<div class="search-button">
+				<button type="submit" class="btn-search"></button>
+			</div>
+			<div class="search-common-pannel">
+				<input type="text" x-webkit-speech=''/>
+				<i class="iconfont">ő</i>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>

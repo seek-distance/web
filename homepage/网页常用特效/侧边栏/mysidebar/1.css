@@ -1,0 +1,183 @@
+/* CSS Document */
+div,body,ul,li,span{
+	margin:0;
+	padding:0;
+}
+#sidebar{
+	position:fixed;
+	padding-top:200px;
+	height:100%;
+	width:35px;
+	background:#e1e1e1;
+	z-index:2;
+}
+.item{
+	text-align:center;
+	margin-top:5px;
+	font:12px "微软雅黑";
+	cursor:pointer;
+}
+#closeBar{
+	position:absolute;
+	text-align:center;
+	bottom:30px;
+	width:35px;
+	cursor:pointer;
+}
+.nav-content{
+	width:120px;
+	position:fixed;
+	min-height:100%;
+	background:#e1e1e1;
+	z-index:1;
+	opacity:0;
+}
+.nav-con-close{
+	position:absolute;
+	top:5px;
+	right:5px;
+	cursor:pointer;
+}
+
+/*动画部分*/
+
+.sidebar-left{
+	animation-name:sl;
+	-webkit-animation-name:sl;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes sl{
+	from{
+		left:0;		
+	}to{
+		left:-120px;
+	}
+}
+
+.closebar-right{
+	animation-name:cr;
+	-webkit-animation-name:cr;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes cr{
+	from{
+		left:0;	
+	}to{
+		left:160px;
+		transform:rotate(405deg);
+	}
+}
+
+.sidebar-right{
+	animation-name:sr;
+	-webkit-animation-name:sr;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes sr{
+	from{
+		left:-120px;
+	}
+	to{
+		left:0;
+	}
+}
+
+.closebar-left{
+	animation-name:cl;
+	-webkit-animation-name:cl;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+@keyframes cl{
+	from{
+		left:160px;
+	}
+	to{
+		left:0;
+		transform:rotate(-360deg);
+	}
+}
+
+.nav-right{
+	animation-name:nr;
+	-webkit-animation-name:nr;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+@keyframes nr{
+	from{
+		opacity:0;
+		left:0;
+	}
+	to{
+		opacity:1;
+		left:35px;
+	}
+}
+
+.nav-left{
+	animation-name:nl;
+	-webkit-animation-name:nl;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+@keyframes nl{
+	from{
+		opacity:1;
+		left:35px;
+	}
+	to{
+		opacity:0;
+		left:0;
+	}
+}
+
+.nav-up{
+	animation-name:nu;
+	-webkit-animation-name:nu;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+@keyframes nu{
+	from{
+		opacity:0;
+		top:250px;
+		left:35px;
+	}
+	to{
+		opacity:1;
+		top:0px;
+		left:35px;
+	}
+}

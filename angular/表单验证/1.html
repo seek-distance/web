@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>表单验证</title>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+<style>
+	.red{
+		background: #a30;
+	}
+	.error{
+		color: #a10;
+	}
+	input.error{
+		border: 1px solid #a10;
+	}
+	.wrapper{
+		width: 200px;
+		margin:30px auto;
+
+	}
+</style>
+</head>
+<body ng-app='myapp' ng-controller="myForm">
+	<div class="wrapper">
+		<h2>注册</h2>
+		<form name="signUp"> 
+			<div class="form-group">
+				<label>用户名：</label>
+				<input type="text" name="username" class="form-control" ng-model='user.name' ng-minlength='4' ng-maxlength='12' required ng-class="{'error':signUp.username.$invalid && signUp.username.$touched}">
+				<p ng-if="signUp.username.$invalid && signUp.username.$touched" class="error">请输入4到12位长度用户名</p>
+			</div>
+			<div class="form-group">
+				<label>密码：</label>
+				<input type="password" name="password" class="form-control" ng-model='user.psd' ng-minlength='6' ng-maxlength='15' required ng-class="{'error':signUp.password.$invalid && signUp.password.$touched}">
+				<p ng-if="signUp.password.$invalid && signUp.password.$touched" class="error">请输入6到15位长度密码</p>
+			</div>
+			<div class="form-group">
+				<label>确认密码：</label>
+				<input type="password" name="password2" class="form-control" ng-model='user.psd2' required ng-change="checkPsd()">
+				<p ng-if="user.check && signUp.password2.$touched" class="error">两次密码输入不一致</p>
+			</div>
+			<div class="form-group">
+				<button type="submit" ng-disabled="signUp.$invalid" class="btn btn-primary">注册</button>
+			</div>
+		</form>
+	</div>
+
+
+	<script type="text/javascript">
+		var app=angular.module('myapp', []);
+		app.controller('myForm', function($scope){
+			$scope.user={
+				name:'',
+				psd:'',
+				psd2:'',
+				check: false
+			};
+			$scope.checkPsd=function(){
+				if($scope.user.psd!=$scope.user.psd2){
+					$scope.user.check=true;
+				}else{
+					$scope.user.check=false;
+				}
+			};
+		})
+		
+	</script>
+</body>
+</html>

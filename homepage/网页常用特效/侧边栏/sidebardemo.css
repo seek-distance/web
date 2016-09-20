@@ -1,0 +1,251 @@
+/* CSS Document */
+ul{
+	list-style:none;
+	padding-left:0;
+}
+
+#sidebar{
+	width:35px;
+	background:#e1e1e1;
+	padding-top:200px;
+	position:fixed;
+	min-height:100%;
+	z-index:100;
+}
+.item{
+	font-size:12px;
+	font-family:"微软雅黑";
+	text-align:center;
+	margin-top:5px;
+	cursor:pointer;
+}
+
+#closeBar{
+	position:absolute;
+	bottom:30px;
+	width:35px;
+	text-align:center;
+	cursor:pointer;
+}
+
+.nav-content{
+	width:200px;
+	position:fixed;
+	min-height:100%;
+	background:#e1e1e1;
+	z-index:99;
+	opacity:0;
+}
+
+.nav-con-close{
+	position:absolute;
+	top:5px;
+	right:5px;
+	cursor:pointer;
+}
+
+.sidebar-move-left{
+	animation-name:smf;
+	-webkit-animation-name:smf;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes smf {
+    from {
+    }
+    to {
+        -webkit-transform: translateX(-120px);
+        transform: translateX(-120px);
+    }
+}
+
+@keyframes smf {
+    from {
+    }
+    to {
+        -webkit-transform: translateX(-120px);
+        transform: translateX(-120px);
+    }
+}
+
+
+.closeBar-move-right{
+	animation-name:cmr;
+	-webkit-animation-name:cmr;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes cmr{
+	from{	
+	}
+	to{
+		transform:translateX(160px) rotate(405deg) scale(1.5);
+	}
+}
+
+@keyframes cmr{
+	from{	
+	}
+	to{
+		transform:translateX(160px) rotate(405deg) scale(1.5);
+	}
+}
+
+.sidebar-move-right{
+	animation-name:smr;
+	-webkit-animation-name:smr;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes smr{
+	from{	
+	}
+	to{
+		transform:translateX(120px);
+	}
+}
+
+@keyframes smr{
+	from{	
+	}
+	to{
+		transform:translateX(120px);
+	}
+}
+
+.closeBar-move-left{
+	animation-name:cml;
+	-webkit-animation-name:cml;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes cml{
+	from{	
+		transform:scale(1.5);
+	}
+	to{
+		transform:translateX(-160px) scale(1) rotate(-360deg);
+	}
+}
+
+@keyframes cml{
+	from{	
+		transform:scale(1.5);
+	}
+	to{
+		transform:translateX(-160px) scale(1) rotate(-360deg);
+	}
+}
+
+.menuContent-move-right{
+	animation-name:mmr;
+	-webkit-animation-name:mmr;
+	animation-duration:.5s;
+	-webkit-animation-duration:.5s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+
+@-webkit-keyframes mmr{
+	from{
+		opacity:0;
+	}
+	to{
+		opacity:1;
+		transform:translateX(120px);
+	}
+}
+
+@keyframes mmr{
+	from{
+		opacity:0;
+	}
+	to{
+		opacity:1;
+		transform:translateX(120px);
+	}
+}
+
+.menuContent-move-left{
+	animation-name:mml;
+	-webkit-animation-name:mml;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+
+@-webkit-keyframes mml{
+	from{
+		opacity:1;
+	}
+	to{
+		opacity:0;
+		transform:translateX(-120px);
+	}
+}
+
+@keyframes mml{
+	from{
+		opacity:1;
+	}
+	to{
+		opacity:0;
+		transform:translateX(-120px);
+	}
+}
+
+.menuContent-move-up{
+	animation-name:mmu;
+	-webkit-animation-name:mmu;
+	animation-duration:1s;
+	-webkit-animation-duration:1s;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;	
+}
+
+@-webkit-keyframes mmu{
+	from{
+		opacity:0;
+	}
+	to{
+		opacity:1;
+		transform:translateY(-250px);
+	}
+}
+
+@keyframes mmu{
+	from{
+		opacity:0;
+	}
+	to{
+		opacity:1;
+		transform:translateY(-250px);
+	}
+}

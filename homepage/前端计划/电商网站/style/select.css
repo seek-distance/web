@@ -1,0 +1,250 @@
+/* CSS Document */
+#main{
+	padding-bottom:20px;
+	margin-bottom:42px;
+	border-bottom:1px solid #ccc;
+}
+.main_left{
+	width:190px;
+	float:left;
+}
+
+/*左侧顶部*/
+.ml_top{
+	border:1px solid #ccc;
+	background:#f3f3f3;
+}
+.ml_top p{
+	font-size:16px;
+	text-align:center;
+	font-family:"微软雅黑";
+	font-weight:bold;
+	line-height:34px;
+	border-bottom:1px solid #ccc;
+}
+.menu{
+	padding-bottom:15px;
+	border-bottom:1px dashed #ccc;
+}
+.menu p{
+	font-size:14px;
+	text-align:left;
+	text-indent:10px;
+	border:none;
+}
+.menu a{
+	display:block;
+	text-indent:20px;
+	line-height:24px;
+	color:#555;
+}
+.lastmenu{
+	border:none;
+}
+
+/*左侧底部*/
+.ml_foot{
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+.shop{
+	height:80px;
+	width:190px;
+}
+.shop img{
+	float:left;
+}
+.shop_message{
+	float:left;
+	padding-top:14px;
+	width:90px;	
+}
+/*右侧*/
+.main_right{
+	width:797px;
+	margin-left:210px;
+}
+/*右侧顶部*/
+.first_item,.select_item,.last_item{
+	font-size:12px;
+	line-height:22px;
+	border-bottom:1px solid #ccc;
+}
+.first_item span,.select_item span,.last_item span{
+	width:75px;
+	margin-right:36px;
+	text-align:right;
+	float:left;
+	color:#999;
+}
+.first_item div{
+	display:inline-block;
+	width:166px;
+}
+.first_item a{
+	display:inline-block;
+	color:#1d7ad9;
+	float:left;
+}
+.select_item{
+	padding:5px 0;
+	border-bottom:1px dotted #ccc;	
+}
+.select_item>a{
+	width:30px;
+	height:18px;
+	background:#1D7AD9;
+	color:#fff;
+	margin-right:28px;
+	text-align:center;
+	line-height:18px;
+	margin-top:3px;
+	float:left;
+}
+.select_item .more{
+	color:#000;
+	cursor:pointer;
+}
+.select_item .brand,.select_item .other{
+	display:inline-block;
+	width:500px;
+}
+.select_item .brand div{
+	display:inline-block;
+	width:25%;
+}
+.select_item div div a{
+	color:#1d7ad9;
+}
+.select_item .other div{
+	display:inline-block;
+	margin-right:30px;
+}
+.select_item .brand .hide,.select_item .other .hide{	
+	display:none;
+}
+.last_item{
+	padding:5px 0;
+	position:relative;
+}
+.last_item p{
+	cursor:pointer;
+	border:1px solid #ccc;
+	width:110px;
+	text-align:center;
+	display:inline-block;
+}
+.last_item ul{
+	border:1px solid #ccc;
+	position:absolute;
+	background:#fff;
+	display:none;
+	width:110px;
+}
+.last_item .ul1{
+	left:111px;
+}
+.last_item .ul2{
+	left:229px;
+}
+.last_item ul li{
+	border-bottom:1px dotted #ccc;
+	margin-bottom:-1px;
+	text-indent:10px;
+}
+.last_item ul li:hover{
+	background:#ccc;
+}
+
+
+/*右侧中部*/
+.mr_center{
+	background:#f5f5f5;
+	margin-top:15px;
+	border:1px solid #ccc;
+	padding:5px 10px;
+}
+.mr_center .adress{
+	font-size:12px;
+	display:inline-block;
+}
+.mr_center .adress span{
+	padding:0 10px; 
+	border:1px solid #ccc;
+	line-height:24px;
+	display:inline-block;
+}
+.mr_center .adress span a{
+	color:#1D7AD9;
+}
+.center_right{
+	width:270px;
+	float:right;
+}
+.center_right input{
+	margin-top:5px;
+}
+.center_right span{
+	color:#999;
+}
+.center_right span span{
+	color:red;
+}
+
+/*右侧商品*/
+.center_foot{
+	padding-left:30px;
+}
+.center_shop{
+	width:212px;
+	display:inline-block;
+	margin:0 18px;
+}
+.center_shop>a{
+	display:block;
+	line-height:20px;
+	font-size:14px;
+	color:#000;
+	margin:0 5px;
+}
+.center_shop .message{
+	margin:5px 5px 0;
+}
+.center_shop .message a{
+	color:#1D7AD9;
+}
+.center_shop .message .money{
+	color:#d70000;
+	line-height:24px;
+	font-weight:bold;
+	font-size:14px;
+}
+.center_shop .buy{
+	border:1px solid #ccc;
+	color:#1D7AD9;
+	display:inline-block;
+	font-size:12px;
+	line-height:22px;
+	margin-top:8px;
+}
+.center_shop .buy img{
+	float:left;
+}
+
+/*页码*/
+.page {
+	text-align:center;
+	margin-top:30px;
+}
+.page a{
+	font-weight:24px;
+	padding:5px 8px;
+	border:1px solid #ccc;
+	display:inline-block;
+}
+.page input{
+	border:1px solid #ccc;
+	height:24px;
+	text-align:center;
+	width:36px;
+}

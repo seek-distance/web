@@ -1,0 +1,4 @@
+*{margin:0;padding:0;}
+.main_content{width:100%;background-image:url(../img/bg.jpg);background-attachment:fixed; background-position:center center;}
+header{height:750px;}
+.nav{color:#fff;}

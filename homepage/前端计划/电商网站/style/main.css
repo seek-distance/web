@@ -1,0 +1,149 @@
+/* CSS Document */
+
+.top_center,.top_last,#main,.foot_main{
+	width:1000px;
+	margin:0 auto;
+}
+#main{
+	overflow:hidden;	
+	padding-top:17px;
+}
+
+/*头部第一*/
+.top{
+	background:url(../images/index/top_bg.png) repeat-x;
+	height:150px;
+}
+.top_first{
+	width:990px;
+	height:32px;
+	margin:0 auto;
+	padding-right:10px;
+}
+.top_first>span a{
+	font-size:12px;
+	font-weight:bold;
+	color:#000;
+	line-height:30px;
+	padding-left:18px;
+	background:url(../images/index/top_first1.png) no-repeat;
+	background-position:left 9px;
+	float:left;
+}
+.top_first>span a:hover{
+	color:#ff8c00;
+}
+.top_first .first_right{
+	float:right;
+}
+.top_first .first_right a{
+	color:#666;
+	line-height:32px;
+}
+.top_first .first_right a:hover{
+	color:#ff8c00;
+}
+
+/*头部第二*/
+.top_center{
+	height:84px;
+}
+.top_center a img{
+	float:left;
+}
+.select{
+	float:left;
+	width:430px;
+	margin-left:142px;
+	margin-top:22px;
+}
+.select_text{
+	height:35px;
+	font-size:20px;
+	width:350px;
+	float:left;
+	padding:0 5px;
+}
+.select_but{
+	background:#ff8c00;
+	font-size:14px;
+	height:35px;
+	color:#fff;
+	float:right;
+	width:70px;
+	text-align:center;
+	line-height:35px;
+	cursor:pointer;
+}
+.buyBike{
+	float:right;
+	width:145px;
+	height:35px;
+	margin-top:22px;
+	margin-right:30px;
+	background:url(../images/index/top_center2.png);
+}
+.buyBike a{
+	height:35px;
+	width:56px;
+	line-height:35px;
+	font-size:14px;
+	float:right;
+	font-family:"微软雅黑";
+	text-align:right;
+	padding-right:30px;
+	color:#FFF;
+}
+
+/*头部第三*/
+
+.top_last>a{
+	line-height:33px;
+	color:#fff;
+	height:33px;
+	width:150px;
+	padding-left:38px;
+	background:url(../images/index/top_last1.png) no-repeat;
+	font-size:16px;
+	font-family:"微软雅黑";
+	float:left;
+	border-right:1px solid #4593fd;
+}
+.top_last li{
+	float:left;
+	width:100px;
+	height:34px;
+	text-align:center;
+}
+.top_last li a{
+	display:block;
+	color:#fff;
+	line-height:33px;
+	font-weight:bold;	
+}
+.top_last li .on,.top_last li a:hover{
+	background:#4593fd;
+}
+
+/*底部*/
+.foot{
+	height:173px;
+	background:#d4d4d4;
+	text-align:center;
+	padding-top:50px;
+}
+.foot_main{
+	line-height:24px;
+}
+.foot_main a{
+	color:#000;	
+}
+.foot_pic{
+	padding-top:32px;
+}
+.foot_pic img{
+	margin-right:25px;
+}
+.foot_main a:hover{
+	color:#ff8c00;
+}

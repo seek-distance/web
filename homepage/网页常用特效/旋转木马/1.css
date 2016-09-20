@@ -1,0 +1,32 @@
+/* CSS Document */
+body,div,a,ul,li,img{
+	margin:0;
+	padding:0;
+}
+.box{
+	position:relative;
+	margin:100px;
+}
+.box .btn{
+	position:absolute;
+	height:270px;
+	width:200px;
+	cursor:pointer;
+}
+.box .left_btn{
+	left:0;
+	background:url(btn_l.png) no-repeat center center;
+}
+.box .right_btn{
+	right:0;
+	background:url(btn_r.png) no-repeat center center;
+}
+.box ul{
+	list-style:none;
+}
+.box li{
+	position:absolute;
+}
+.box li img,.box li a{
+	display:block;
+}
