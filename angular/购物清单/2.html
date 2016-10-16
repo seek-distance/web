@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>结算页面</title>
+	<script src='angular.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<style>
+		table
+	  	{
+	  		border-collapse:collapse;
+	  	}
+
+		table,th, td
+	  	{
+	  		border: 1px solid black;
+	  		vertical-align:top;
+	  		padding:12px;
+	  	}
+	  	.step2 label{
+	  		display: inline-block;
+			width: 90px;
+			text-align: right;
+	  	}
+	  	.step2 li>span{
+	  		color: red;
+	  	}
+	  	.step2 p{
+	  		margin: 0;
+	  		padding: 0;
+	  	}
+	</style>
+</head>
+<body ng-app="app" ng-controller="mydemo">
+	<table ng-if="!step1IsOK">
+		<thead>
+			<tr>
+				<th>选中</th>
+				<th>ID</th>
+				<th>名称</th>
+				<th>编号</th>
+				<th>商品图片</th>
+				<th>购买数量</th>
+				<th>价格</th>
+				<th>应付</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="x in productList">
+			<tr>
+				<td><input type="checkbox" ng-model="x.selected"></td>
+				<td ng-bind="x.productId"></td>
+				<td ng-bind="x.productName"></td>
+				<td ng-bind="x.productNum"></td>
+				<td><img src="{{x.productPic}}" width="100" height="100"></td>
+				<td><input type="text" ng-model='x.amout' style="width:30px;" ng-change="amoutChange(x.productId)"></td>
+				<td>
+					<b ng-bind="x.price"></b>
+					<del ng-bind="x.oldPrice"></del>
+				</td>
+				<td ng-bind="x.payment"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-if="step1IsOK">
+		<dd>
+			<dl ng-repeat="x in selectedPro">
+				<b ng-bind="x.productName"></b>
+				购买数量：
+				<span ng-bind="x.amout"></span>
+				应付价格：
+				<span ng-bind="x.payment"></span>
+			</dl>
+		</dd>
+	</div>
+	<button ng-click="ConfirmStep1()" ng-bind="btn1"></button>
+	<br>
+	<br>
+	<form name="userInfo">
+		<ul class="step2" ng-show="!step2IsOK">
+			<li>
+				<label>收货人姓名：</label>
+				<input type="text" name="trueName" ng-model='trueName' placeholder="请输入姓名" required ng-pattern='/^\w{2,5}$/'>
+				<span ng-if="userInfo.trueName.$invalid && userInfo.trueName.$dirty">请输入2到5位的收货人姓名</span>
+				<span ng-bind="trueName"></span>
+			</li>
+			<li>
+				<label>电话号码：</label>
+				<input type="text" name="tel" required ng-pattern='/^\d{11}$/' ng-model="tel">
+				<span ng-if="userInfo.tel.$invalid && userInfo.tel.$dirty">请输入11位的电话号码</span>
+			</li>
+			<li>
+				<label>QQ：</label>
+				<input type="text" name="qq" ng-model='qq' ng-pattern='/^\d{5,11}$/' required>
+				<span ng-if="userInfo.qq.$invalid && userInfo.qq.$dirty">请输入5到11位的QQ号码</span>
+			</li>
+			<li>
+				<label>收货地址：</label>
+				<input type="text" name="address" ng-model='address' required>
+				<span ng-if="userInfo.address.$invalid && userInfo.address.$dirty">请输入你的收货地址</span>
+			</li>
+			<li>
+				<p ng-show="!needInvoice">
+					<input type="checkbox" ng-model="needInvoice">
+					<span>需要发票</span>					
+				</p>
+				<p ng-show="needInvoice">
+					<label>发票抬头： </label>
+					<input type="text" required ng-model="FP">
+				</p>
+			</li>
+		</ul>	
+	</form>
+	<ul ng-show="step2IsOK">
+		<li>
+			<label>收货人姓名：</label>
+			<span ng-bind="trueName"></span>
+		</li>
+		<li>
+			<label>电话号码：</label>
+			<span>{{tel}}</span>
+		</li>
+		<li>
+			<label>QQ：</label>
+			<span ng-bind="qq"></span>
+		</li>
+		<li>
+			<label>收货地址：</label>
+			<span ng-bind="address"></span>
+		</li>
+		<li ng-show="needInvoice">
+			<label>发票抬头：</label>
+			<span ng-bind="FP"></span>
+		</li>
+	</ul>
+	<!-- ng-disabled="userInfo.$invalid" -->
+	<button  ng-click="ConfirmStep2()" ng-bind="btn2"></button>
+
+	<script>
+		console.log(angular)
+		var app=angular.module('app', []);
+		app.controller('mydemo', function($scope){
+			$scope.step1IsOK=false;
+			$scope.btn1='确认商品';
+			$scope.productList=[
+				{
+					selected:true,
+					productId:1,
+					productName:'耳机',
+					productNum:'P0001',
+					productPic:'http://y.zdmimg.com/201603/26/56f5e694762045067.jpg_d200.jpg',
+					amout:1,
+					price:1500,
+					oldPrice:1700,
+					payment:1500
+				},
+				{
+					selected:true,
+					productId:2,
+					productName:'单反相机',
+					productNum:'P0002',
+					productPic:'http://ym.zdmimg.com/201603/26/56f5e989a0a4a.jpg_d200.jpg',
+					amout:1,
+					price:5200,
+					oldPrice:6000,
+					payment:5200
+				},
+				{
+					selected:true,
+					productId:3,
+					productName:'乐高积木',
+					productNum:'P0003',
+					productPic:'http://y.zdmimg.com/201603/25/56f5086b664574407.png_d200.jpg',
+					amout:1,
+					price:490,
+					oldPrice:60,
+					payment:490
+				}
+			];
+			$scope.selectedPro=[];
+			$scope.amoutChange=function(id){
+				var index;
+				for (var i = 0; i < $scope.productList.length; i++) {
+					if($scope.productList[i].productId==id){
+						index=i;
+						break;
+					}
+				}
+				if($scope.productList[index].amout==''){
+					$scope.productList[index].amout=1;
+				}
+				$scope.productList[index].payment=$scope.productList[index].amout*$scope.productList[index].price;
+			};
+			$scope.ConfirmStep1=function(){
+				for (var i = 0,n=0; i < $scope.productList.length; i++) {
+					if($scope.productList[i].selected==true){
+						$scope.selectedPro[n++]=$scope.productList[i];
+					}
+					$scope.selectedPro.length=n;
+				}
+				$scope.step1IsOK=!$scope.step1IsOK;
+				if($scope.step1IsOK==true){
+					$scope.btn1='修改商品详情';
+				}else{
+					$scope.btn1='确认商品';
+				}
+			};
+
+
+
+			$scope.btn2='确认个人信息';
+			$scope.trueName='';
+			$scope.tel='';
+			$scope.qq='';
+			$scope.address='';
+			$scope.needInvoice = false;
+			$scope.step2IsOK=false;
+			$scope.ConfirmStep2=function(){
+				$scope.step2IsOK=!$scope.step2IsOK;
+			}
+		});
+	</script>
+</body>
+</html>
