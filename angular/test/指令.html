@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>指令</title>
+	<style>
+		/* .odd{
+			background-color: blue;
+		}
+		.even{
+			background-color: red;
+		} 
+		input.ng-invalid{
+			border: 1px solid red;
+		}
+		input.ng-valid{
+			border: 1px solid green;
+		}*/
+		.red{
+			background-color: red;
+		}
+	</style>
+	<script src='angular-1.3.0.js'></script>
+</head>
+<body ng-app="app">
+	<!-- 子控制器是复制而不是引用someBareValue
+	<div ng-controller="SomeController">
+		{{someBareValue}}
+		<button ng-click="someAction()">Communicate to child</button>
+		<div ng-controller="ChildController">
+			{{someBareValue}}
+			<button ng-click="childAction()">Communicate to parent</button>
+		</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('SomeController', function($scope){
+			$scope.someBareValue='hello computer';
+			$scope.someAction = function(){
+				$scope.someBareValue = 'hello human,from parent';
+			}
+		})
+		.controller('ChildController', function($scope){
+			$scope.childAction = function(){
+				$scope.someBareValue = 'hello human,from child';
+			}
+		});
+	</script> -->
+
+	<!-- 字符串、数字、布尔值是复制，数组、对象、函数是引用复制 
+	<div ng-controller="SomeController">
+		{{someModel.someValue}}
+		<button ng-click="someAction()">Communicate to child</button>
+		<div ng-controller="ChildController">
+			{{someModel.someValue}}
+			<button ng-click="childAction()">Communicate to parent</button>
+		</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('SomeController', function($scope){
+			$scope.someModel = {
+				someValue: 'hello computer'
+			}
+			$scope.someAction = function(){
+				$scope.someModel.someValue = 'hello human,from parent';
+			}
+		})
+		.controller('ChildController', function($scope){
+			$scope.childAction=function(){
+				$scope.someModel.someValue = 'hello human,from child';
+			}			
+		})
+	</script>-->
+
+	<!-- <input type="text" ng-model='person.name'>
+	<div ng-switch on="person.name">
+		<p ng-switch-default>And the winner is</p>
+		<h1 ng-switch-when="i">{{person.name}}</h1>
+	</div> -->
+
+	<!-- <div ng-if="2+2===5">
+		Won't see this DOM node,not even in the source code
+	</div>
+	<div ng-if="2+2===4">
+		Hi,I do exist
+	</div> 
+	<ul ng-controller="PeopleController">
+		<li ng-repeat="person in people" ng-class="{even: !$even, odd: !$odd}"></li>
+	</ul>
+	<script>
+		angular.module('app', [])
+		.controller('PeopleController', function($scope){
+			$scope.people=[
+				{name:"Ari",city:"San Francisco"},
+				{name:"Erik",city:"Seattle"}
+			];
+		})
+	</script>-->
+
+	<!-- <div ng-controller="ctr" ng-bind-template="{{message}}{{name}}"></div>
+	<script>
+		angular.module('app', [])
+		.controller('ctr', function($scope){
+			$scope.message='nihao,';
+			$scope.name='xiaoming'
+		})
+	</script> -->
+
+	<!-- <div ng-controller="EquationController">
+		<input type="text" ng-model='equation.x' ng-change="change()">
+		<code>{{equation.output}}</code>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('EquationController', function($scope){
+			$scope.equation={};
+			$scope.change=function(){
+				$scope.equation.output=parseInt($scope.equation.x)+2;
+			}
+		})
+	</script> -->
+
+	<!-- <form name="signup_form" ng-controller="FormController" ng-submit="submitForm()" novalidate>
+		<div ng-repeat="field in fields" ng-form="signup_form_input">
+			<input type="text" name="dynamic_input" ng-required='field.isRequired' ng-model='field.name' placeholder="{{field.placeholder}}">
+			<div ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.dynamic_input.$invalid">
+				<span class="error" ng-show="signup_form_input.dynamic_input.$error.required">
+					The field is required.
+				</span>
+			</div>
+		</div>
+		<button type="submit" ng-disabled="signup_form.$invalid">submit all</button>
+	</form>
+	<script>
+		angular.module('app', [])
+		.controller('FormController', function($scope){
+			$scope.fields=[
+				{placeholder:'Username',isRequired:true},
+				{placeholder:'Password',isRequired:true},
+				{placeholder:'Email(optional)',isRequired:false}
+			];
+			$scope.submitForm=function(){
+				alert('it works!');
+			}			
+		})
+	</script> -->
+
+	<!-- <div ng-controller="CounterController">
+		<button ng-click="count = count+1" ng-init="count=0">Increment</button>
+		count:{{count}}
+		<button ng-click="decrement()">Decrement</button>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('CounterController', function($scope){
+			$scope.decrement=function(){
+				$scope.decrement=function(){
+					$scope.count = $scope.count-1;
+				}
+			}
+		})
+		
+	</script> -->
+
+	<!-- <div ng-controller="CityController">
+		<select ng-model='city' ng-options="city.name for city in cities"></select>
+		Best City:{{city.name}}
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('CityController', function($scope){
+			$scope.cities=[
+				{name:'Seattle'},
+				{name:'San Francisco'},
+				{name:'Chicago'},
+				{name:'New York'},
+				{name:'Boston'}
+			]
+		})
+	</script> -->
+
+	<!-- <form ng-submit="Submit()" ng-controller="FormController">
+		Enter text and hit enter:
+		<input type="text" ng-model='person.name' name="person.name">
+		<input type="submit" name="person.name" value="Submit">
+		<code>people={{people}}</code>
+		<ul ng-repeat="(index, object) in people">
+			<li>{{index}}.{{object.name}}</li>
+		</ul>
+	</form>
+	<script>
+		angular.module('app', [])
+		.controller('FormController', function($scope){
+			$scope.person={
+				name:null
+			};
+			$scope.people=[];
+			$scope.Submit=function(){
+				if($scope.person.name){
+					$scope.people.push({name:$scope.person.name});
+					$scope.person.name='';
+				}
+			}
+		})
+	</script> -->
+
+	<div ng-controller="LotteryController">
+		<div ng-class="{red: x>5}" ng-if="x>5">You won!</div>
+		<button ng-click="x = generateNumber()" ng-init="x = 0">Draw Number</button>
+		<p>Number is:{{ x }}</p>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('LotteryController', function($scope){
+			$scope.generateNumber = function(){
+				return Math.floor((Math.random()*10)+1);
+			}
+		})
+	</script>
+
+	<!-- <svg ng-controller="ctr">
+		<circle ng-attr-cx='{{cx}}'></circle>
+	</svg>
+	<script>
+		angular.module('app', [])
+		.controller('ctr', function($scope){
+			$scope.cx=100;
+		})
+	</script> -->
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>依赖注入</title>
+	<script src='angular-1.3.0.js'></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="ctr">
+		<button ng-click="sayHello()">Hello</button>
+	</div>
+	<script>
+		angular.module('app', [])
+		.factory('greeter', function(){
+			return{
+				greet:function(msg){
+					alert(msg);
+				}
+			} 
+		})
+		.controller('ctr', function($scope,greeter){
+			$scope.sayHello=function(){
+				greeter.greet("Hello!");
+			}
+		})
+	</script>
+</body>
+</html>

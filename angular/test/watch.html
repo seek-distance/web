@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>watch测试</title>
+	<script src='angular-1.3.0.js'></script>
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body ng-app='app' ng-controller="ctr">
+	<!-- <input type="text" ng-model='user.name'><br>
+	Name updated:{{updated}} times.
+	<script>
+		var app=angular.module('app', []);
+		app.controller('ctr', function($scope){
+			$scope.user={
+				name:'fox'
+			};
+			$scope.updated=0;
+			$scope.$watch('user',function(newValue,oldValue){
+				if (newValue === oldValue) {return;}
+				$scope.updated++;
+			},true);
+		})
+	</script> -->
+
+	<!-- <hello>美女!</hello>
+	<script>
+		var app=angular.module('app', []);
+		app.directive('hello',function(){
+			return {
+				restrict: 'E',			
+				transclude: true,
+				template: '<div>hello,<b ng-transclude></b></div>',
+				replace: true,
+			}
+		})
+	</script> -->
+
+	<div ng-controller="ctr">
+		<input type="text" ng-model='expr' placeholder="enter" style="width:100%">
+		<h2>{{parseValue}}</h2>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('ctr', function($scope,$parse){
+			$scope.$watch('expr',function(newVal,oldVal,scope){
+				if (newVal !== oldVal) {
+					var parseFun = $parse(newVal);
+					console.log(parseFun);
+					$scope.parseValue = parseFun(scope);
+				}
+			})
+		});
+	</script>
+
+	<!-- <div>
+	    <div ng-controller="MyController">
+	        <div>{{ParsedValue}}</div>
+	    </div>
+	</div>
+	<script>
+		angular.module("app",[])
+		.controller("MyController", function($scope, $parse){
+		    $scope.context = {
+		        add: function(a, b){return a + b;},
+		        mul: function(a, b){return a * b}
+		    }
+		    $scope.expression = "mul(a, add(b, c))";
+		    $scope.data = {
+		        a: 3,
+		        b: 6,
+		        c: 9
+		    };
+		    var parseFunc = $parse($scope.expression);
+		    $scope.ParsedValue = parseFunc($scope.context, $scope.data);
+		});
+	</script> -->
+	<!-- <div ng-controller="ctr">
+		<div>{{val}}</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('ctr', function($scope,$parse){
+			$scope.con={
+				a:function(b){
+					b='1.'+b;
+					return b;
+				}
+			}
+			var parseFunc=$parse('a(0)');
+			$scope.val=parseFunc($scope.con);
+		});
+		
+	</script> -->
+
+	<!-- <div ng-controller="ctr">
+		<input type="email" ng-model='to' placeholder="Recipient">
+		<textarea ng-model='emailBody'></textarea>
+		<pre>{{previewText}}</pre>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('ctr', function($scope,$interpolate){
+			$scope.$watch('emailBody',function(body){
+				if (body) {
+					var template = $interpolate(body);
+					$scope.previewText = template({to:$scope.to});
+				}
+			})
+		});
+	</script> -->
+
+	
+</body>
+</html>

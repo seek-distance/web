@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>指令详解</title>
+	<script src='angular-1.3.0.js'></script>
+</head>
+<body ng-app="app">
+	<!-- <div ng-init="someProperty = 'some data'">
+		<div ng-init="siblingProperty='moredata'">
+			Inside Div Two:{{aThirdProperty}}
+			<div ng-init="aThirdProperty='data for 3rd property'" ng-controller="SomeController">
+				Inside Div Three:{{aThirdProperty}}
+				<div ng-init="aFourthProperty">
+					Inside Div Four:{{aThirdProperty}}
+					<div ng-init="aFourthProperty">
+						Inside Div Four:{{aThirdProperty}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.controller('SomeController',function($scope){
+			
+		})
+	</script> -->
+
+	<!-- Outside myDirective: {{ myProperty }}
+	<div my-directive ng-init="myProperty = 'wow, this is cool'">
+	    Inside myDirective: {{ myProperty }}
+	<div>
+	<script>
+		angular.module('app', [])
+	    .directive('myDirective', function() {
+	      return {
+	        restrict: 'A',
+	        scope: {}
+	      };
+	    })
+	</script> -->
+
+	<!-- <div ng-init="myProperty='wow,this is cool'">
+		Surrounding scope:{{myProperty}}
+		<div my-inherit-scope-directive></div>
+		<div my-directive></div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.directive('myDirective',function(){
+			return{
+				restrict:'A',
+				template:'Inside myDirective, isolate scope {{myProperty}}',
+				scope:{}
+			};
+		})
+		.directive('myInheritScopeDirective',function(){
+			return{
+				restrict:'A',
+				template:'Inside myDirective,isolate scope {{myProperty}}',
+				scope: true
+			}
+		})
+	</script> -->
+
+	<div sidebox title='Links'>
+		<ul>
+			<li>First link</li>
+			<li>Second link</li>
+		</ul>
+	</div>
+	<div sidebox title="TagCloud">
+		<div class="tagcloud">
+			<a href="">Graphics</a>
+			<a href="">AngularJS</a>
+			<a href="">D3</a>
+			<a href="">Front-end</a>
+			<a href="">Startup</a>
+		</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.directive('sidebox',function(){
+			return{
+				restrict: 'EA',
+				scope:{
+					title:'@'
+				},
+				transclude:true,
+				template:'<div class="sidebox">\
+					<div class="content">\
+						<h2 class="header">{{title}}</h2>\
+						<div class="content" ng-transclude></div>\
+				</div>'
+			}
+		})
+	</script>
+</body>
+</html>

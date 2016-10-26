@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>directer测试</title>
+	<script src='angular-1.3.0.js'></script>
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body ng-app='app'>
+	<!-- <p>Ww can access: {{ rootProperty }}</p>
+	<div ng-controller="ParentController">
+		<p>we can access:{{ rootProperty }} and {{ parentProperty }}</p>
+		<div ng-controller="ChildController">
+			<p>
+				We can access: {{rootProperty}} and {{parentProperty}} and {{childProperty}}
+			</p>
+			<p>{{fullSentenceFromChild}}</p>
+		</div>
+	</div>
+	<script>
+		angular.module('app', [])
+		.run(function($rootScope){
+			$rootScope.rootProperty='root scope';
+		})
+		.controller('ParentController', function($scope){
+			$scope.parentProperty='parent scope';
+		})
+		.controller('ChildController', ['$scope', function($scope){
+			$scope.childProperty='child scope';
+			$scope.fullSentenceFromChild = 'Same $scope: We can access:' + $scope.rootProperty +' and '+ $scope.parentProperty +' and '+ $scope.childProperty;
+		}])
+		
+	</script> -->
+
+	<!-- <my-directive></my-directive>
+	<script>
+		angular.module('app', [])
+		.directive('myDirective',function(){
+			return {
+				replace: true,
+				restrict: 'E',
+				template: '<a href="http://www.baidu.com">点击我到百度</a>'
+	
+			}
+		})
+	</script> -->
+	
+	<div my-directive some-attr='http://www.baidu.com' my-link-text='点击我前往百度'></div>
+	<script>
+		angular.module('app', [])
+		.directive('myDirective',function(){
+			return {
+				restrict: 'EA',
+				replace: true,
+				scope:{
+					myUrl:'@someAttr',
+					myLinkText:'@'
+				},
+				template: '<a href="{{myUrl}}">'+'{{myLinkText}}</a>'
+			}
+		})
+		
+	</script>
+</body>
+</html>
