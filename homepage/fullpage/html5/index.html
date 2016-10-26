@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>html5+css3 入门</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+
+<body>
+
+    <div id="dowebok">
+        <div class="section">
+            <h1 class="animated bounce">HTML5 + CSS3 入门篇</h1>
+
+        </div>
+        <div class="section">
+            <div class="slides">
+                <div class="slidesContainer">
+                    <div class="slide table ">
+                        <div class="tableCell">
+                            <h2>什么是HTML5</h2>
+                            <div class="box clearfix">
+                                <div style="width:400px;" class="fl">
+                                    <img src="images/img_1.jpg" alt="">
+                                </div>
+                                <div style="width:800px;" class="fr">
+                                    <h5>万维网的核心语言、标准通用标记语言下的一个应用超文本标记语言(HTML)的第五次重大修改。</h5>
+                                    <p>简单来说，HTML5是下一代Web语言，它不再只是一种标记语言，它为下一代 Web 提供了全新的框架和平台，包括提供免插件的音视频、图像动画、本体存储以及更多酷炫而且重要的功能，并使这些应用标准化，从而使Web 能够轻松实现类似桌面的应用体验。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide table">
+                        <div class="tableCell">
+                            <h2>HTML5的优势与优点</h2>
+                            <div class="box clearfix">
+                                <ul class="p_5 fl dashed">
+                                    <li>移植性强，可以在多平台上运行，降低开发成本。</li>
+                                    <li>H5应用的升级==强制升级</li>
+                                    <li>H5开发出来的网络应用（web app）可以绕过苹果的应用商店，让用户直接从网站下载。</li>
+
+                                </ul>
+                                <ul class="p_5 fr dashed">
+                                    <li>提高可用性和改进用户友好体验</li>
+                                    <li>新增的标签助于开发定义</li>
+                                    <li>替换FLASH和silverlight</li>
+                                    <li>视频和音频让网站更丰富</li>
+                                    <li>优化SEO搜索</li>
+                                    <li>大量应用于移动应用程序和游戏</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+ <div class="slide table">
+                        <div class="tableCell">
+                            <img src="images/html5.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="slides">
+                <div class="slidesContainer">
+                    <div class="slide table ">
+                        <div class="tableCell">
+                            <h2>html5的结构</h2>
+                            <div class="box dashed clearfix">
+                                <pre>
+              &lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+                    &lt;head&gt;
+                         &lt;meta charset=&quot;UTF-8&quot; &gt;
+                         &lt;title&gt;Document&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    .
+                    .
+                    .
+
+                    &lt;/body&gt;
+               &lt;/html&gt;
+                    </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide table">
+                        <div class="tableCell">
+                            <h2>meta属性</h2>
+                            <div class="box dashed clearfix">
+                                <p>提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词</p>
+                                <pre>&lt;meta <code>name="keywords"</code> content="HTML,ASP,PHP,SQL"&gt;</pre>
+                                <p>或者手机端设备</p>
+                                <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1, <br> maximum-scale=1.0, user-scalable=0;"&gt;
+                       </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide table">
+                        <div class="tableCell">
+                            <h2>html5标签</h2>
+                            <div class="box clearfix">
+                                <div class="p_5 dashed fl">
+                                    <span class="bg_w_3">表格类</span>
+                                    <br> table、th、 tr、td
+                                    <br>
+                                    <span class="bg_w_3">表单类</span>
+                                    <br> form、input、label、button、select、option、textarea
+                                    <br>
+                                    <span class="bg_w_3">列表类</span>
+                                    <br> ul、li、dl、dt、dd、ol
+                                    <br>
+                                    <span class="bg_w_3">链接类型</span>
+                                    <br> a、link、nav
+                                </div>
+                                <div class="p_5 dashed fr">
+                                    <span class="bg_w_3">格式类型</span>
+                                    <br> h1、 h2、 h3、 h4、 h5、 h6、p、em、b、font、big、small
+                                    <br>
+                                    <span class="bg_w_3">盒模型</span>
+                                    <br> div、span
+                                    <br>
+
+                                    <span class="bg_w_3">媒体类</span>
+                                    <br> img、video、source、canvas、map
+                                    <br>
+                                    <span class="bg_w_3">其他</span>
+                                    <br> header、footer、nav、hr、br、style、script等等
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>HTML好比人的骨骼，css好比是一件华丽的衣裳</h3>
+            <div class="fl p_5 clearfix">
+                <div class=" clearfix bg_w h400 fblack">
+                    <span id="noclothe">我只是一副骨头</span>
+
+
+                </div>
+                <div class=" clearfix tc ">
+                    <span id="puton" class="btn btn-success btn-lg">穿上衣服</span>
+                    <span id="putoff" class="btn btn-success btn-lg">脱下衣服</span>
+                </div>
+
+            </div>
+            <div id="clothe_code" class="fr p_5 clearfix hidden">
+                <div class=" clearfix dashed fb f18 tl pad_20">
+                    <h2><pre >&lt;span class="<b id="class_clothe" class="fred hidden">clothe</b>" &gt;我只是一副骨头&lt;/span&gt;</pre></h2>
+                    <div class="fl p_5">
+                      .clothe{
+                    <br> background: #e52e89;
+                    <br> color: #fff;
+                    <br> padding: 5px 10px;
+                    <br> -webkit-border-radius: 10px ;
+                    <br> -moz-border-radius: 10px ;
+                    <br> border-radius: 10px ;
+                    <br> margin:0 50px;
+                    <br> line-height: 150px;
+                    <br> position: relative;
+                    <br> }
+</div>
+                   <div class="fr p_5">
+                    .clothe:after{
+                    <br> content: '';
+                    <br> position: absolute;
+                    <br> left: -12px;
+                    <br> top: 20px;
+                    <br> border: 12px solid #e52e89;
+                    <br> -webkit-transform: rotate(45deg);
+                    <br> -moz-transform: rotate(45deg);
+                    <br> transform: rotate(45deg);
+                    <br> }
+                    </div>
+                </div>
+            </div>
+           
+
+
+        </div>
+        <div class="section">
+
+            <div class="slides">
+                <div class="slidesContainer">
+                    <div class="slide table ">
+                        <div class="tableCell">
+                            <div class="box fb clearfix">
+                                <div class="dashed clearfix tl">
+                                    <pre class="tl">
+                        &lt;link rel="stylesheet" href="a.css"&gt; <br>
+                        a.css  <br>
+                        p{color:red;}
+                        </pre>
+
+                                </div>
+                                <div class="dashed clearfix tl">
+                                    <pre>
+                        &lt;style&gt; <br>
+                        p{color:red;} <br>
+                        &lt;/style&gt;
+                        </pre>
+                                </div>
+                                <div class="dashed clearfix tl">
+                                    <pre>
+                        &lt;p stylel="color:red"&gt; 
+                            <span class="fred">颜色</span>
+                        &lt;/p&gt;
+                        </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide table">
+                        <div class="tableCell">
+                            <h3>CSS大实验</h3>
+                            <div class="box h400 fblack bg_w clearfix" style="position:relative;">
+                                <span id="test">我</span>
+
+                            </div>
+                            <div style="height:105px;" class="box tip">&nbsp;</div>
+
+                            <div class="function-btn box lh70">
+                                <span class="btn btn-default btn-lg" id="text1">fontsize</span>
+                                <span class="btn btn-default btn-lg" id="text2">background</span>
+                                <span class="btn btn-default btn-lg" id="text3">color</span>
+                                <span class="btn btn-default btn-lg" id="text4">font-weight</span>
+                                <span class="btn btn-default btn-lg" id="text5">border</span>
+                                <span class="btn btn-default btn-lg" id="text6">border-radius</span>
+                                <span class="btn btn-default btn-lg" id="text7">width</span>
+                                <span class="btn btn-default btn-lg" id="text8">height</span>
+                                <span class="btn btn-default btn-lg" id="text9">line-height</span>
+                                <span class="btn btn-default btn-lg" id="text-block">block</span>
+
+                                <span class="btn btn-default btn-lg" id="text10">tl</span>
+                                <span class="btn btn-default btn-lg" id="text11">tc</span>
+                                <span class="btn btn-default btn-lg" id="text12">tr</span>
+
+                                <span class="btn btn-default btn-lg" id="text13">fl</span>
+                                <span class="btn btn-default btn-lg" id="text14">fr</span>
+                                <span class="btn btn-default btn-lg" id="text15">display</span>
+                                <span class="btn btn-default btn-lg" id="text16">rotate</span>
+                                <span class="btn btn-default btn-lg" id="text17">animate</span>
+                                <span class="btn btn-default btn-lg" id="text18">margin</span>
+                                <span class="btn btn-default btn-lg" id="text19">padding</span>
+                                <span class="btn btn-default btn-lg" id="text20">position</span>
+                                <span class="btn btn-default btn-lg" id="text21">left</span>
+                                <span class="btn btn-default btn-lg" id="text22">top</span>
+                                <span class="btn btn-default btn-lg" id="text23">right</span>
+                                <span class="btn btn-default btn-lg" id="text24">bottom</span>
+                                <span class="btn btn-default btn-lg" id="text25">boxing-sizing</span>
+                                <span class="btn btn-default btn-lg" id="reset">清除样式</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="slide table">
+                <div class="tableCell">
+                    <h3>CSS盒模型</h3>
+                    <div class="box clearfix tc"><img class="w500" src="images/margin-padding.jpg" alt=""></div>
+                    
+                </div>
+            </div>
+                <div class="slide table">
+                    <div class="tableCell">
+                        <div class="box dashed pad_20 clearfix">
+                            <h3>截取文字</h3>
+                            <div>
+                                .ellips{ white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden; }
+
+                            </div>
+                            <div class="ellips w500">Payment  Security Seatel online account Other payment methods</div>
+                            <hr>
+                            <div>.breakword{word-break: break-word;}</div>
+                            <div class="breakword w500">Payment  Security Seatel online account Other payment methods</div>
+                            <hr>
+                            <div>.breakall{word-break: break-all;}</div>
+                            <div class="breakall w500">Payment Security Seatel online account Other payment methods</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h1>谢&nbsp;谢</h1>
+
+        </div>
+    </div>
+
+    <!--
+	<div class="section hidden">
+		
+        <div class="slides">
+        <div class="slidesContainer">
+            <div class="slide table ">
+                <div class="tableCell">
+                </div>
+            </div>
+            <div class="slide table">
+                <div class="tableCell">
+                    <h3>第二屏的第三屏</h3>
+                </div>
+            </div>
+            <div class="slide table">
+                <div class="tableCell">
+                    <h3>第二屏的第三屏</h3>
+                </div>
+            </div>
+            </div>
+        </div>        
+	</div>
+	
+	<div class="section hidden">
+		<h3>第五屏</h3>
+		<p>这是最后一屏</p>
+	</div>
+-->
+<div id="content"  class="hidden" ><textarea name=""  cols="40" rows="10"></textarea></div>
+
+
+<!--
+    <script  src="js/sea.js"
+        data-config="./js/sea_config" data-main="./js/sea_app"
+    ></script>
+-->
+    <script  src="js/sea.js"></script>
+    <script src="js/sea_config.js"></script>
+    
+<!--    <script data-main="js/main" src="js/require.js"></script>-->
+    
+<!--
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <script src="js/app.js"></script>
+-->
+
+</body>
+
+</html>
