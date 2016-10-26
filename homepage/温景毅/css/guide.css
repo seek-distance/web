@@ -1,0 +1,126 @@
+html{
+	height: 100%;
+	line-height: 14px;
+}
+body{
+	font-size: 14px;
+	background: url(../img/login-bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+.header{
+	height:0.6rem;
+	background: #6a83c8;
+	font-size: 0.22rem;
+	line-height: 0.6rem;
+	text-indent: 1em;
+}
+.header a{
+	color: rgba(255, 255, 255, 0.5);
+}
+.login-box{
+	margin: 100px auto;
+	width: 6rem;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.login-header{
+	height: 0.5rem;
+	border-bottom: 1px solid #ccc;
+	color: #5bc0de;
+	position: relative;
+}
+.login-header span{
+	font-size: 0.35rem;
+	width: 2.9rem;
+	display: inline-block;
+	text-align: center;
+	line-height: 0.5rem;
+	cursor: pointer;
+}
+.login-header .register-btn{
+	color: #ccc;
+}
+.login-header hr{
+	position: absolute;
+	left: 0rem;
+	bottom: -0.01rem;
+	width: 2.9rem;
+	border:none;
+	border-bottom: 1px solid #2199e5;
+	height: 1px;
+	transition:0.3s;
+}
+.login-page{
+	padding-top: 0.4rem;
+	padding-bottom: 0.3rem;
+}
+.login-page p{
+	height: 0.65rem;
+	margin-bottom: 0.1rem; 
+}
+.login-content p span:first-child,.register-page li span:first-child{
+	width: 1.5rem;
+	text-align: right;
+	float: left;
+	line-height: 0.5rem;
+	padding-right: 0.1rem;
+}
+.login-content p>input,.register-page li input{
+	border-radius: 5px;
+	border:1px solid #ccc;
+	width: 3.7rem;
+	height: 0.46rem;
+	padding-left: 0.1rem;
+}
+.login-content .autoLogin{
+	margin-left: 1.7rem;
+}
+.login-content p a,.register-page li a{
+	margin-top: -0.1rem;
+	text-decoration: none;
+	line-height: 0.6rem;
+	text-align: center;
+	color: #fff;
+	width: 1.4rem;
+	height: 0.6rem;
+	display: block;
+	margin-left: 1.7rem;
+	background-color: #5bc0de;
+}
+.register-page{
+	padding-top: 0.15rem;
+}
+.register-page li{
+	height:0.9rem;
+}
+.register-page li span:first-child{
+	line-height: 0.4rem;
+}
+.register-page li .error{
+	color:red;
+	padding-left: 1.7rem;
+}
+.register-page li input{
+	width: 2.5rem;
+	height:0.4rem;
+	margin-top: 0.05rem;
+}
+.register-page li button{
+	background-color: #5bc0de;
+	border:0 solid #ccc;
+	height:0.4rem;
+	border-radius: 5px;
+	color:#fff;
+	margin-left: 0.1rem;
+	font-size: 12px;
+	padding:0 0.1rem;
+}
+.register-page li a{
+	height: 0.4rem;
+	width: 1rem;
+	line-height: 0.4rem;
+	margin-top: 0.1rem;
+	margin-left: 1.6rem;
+}
+
+
