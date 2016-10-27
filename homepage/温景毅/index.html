@@ -262,7 +262,10 @@
 					this.leftItem[i].addEventListener('click',function(){
 						self.leftClose(self);
 					})
-				}
+				};
+				this.fix.addEventListener('click',function(){
+					self.leftBtn.style.display='block';
+				});
 			},
 			bindEle:function(){
 				var self=this;
@@ -391,6 +394,7 @@
 			this.unlogin=parent.querySelector('.unlogin');
 			this.haslogin=parent.querySelector('.haslogin');
 			this.headPic=parent.querySelector('.headPic');
+			this.leftBtn=document.getElementsByClassName('fixLeftbtn')[0];
 			this.hasComplete=true;
 
 			this.bindEle();
@@ -413,6 +417,7 @@
 						self.fix.style.display='block';
 						self.fix.style.left='-2rem';
 						self.personal.style.right='0rem';
+						self.leftBtn.style.display='none';
 						self.hasComplete=true;
 					}
 				});
