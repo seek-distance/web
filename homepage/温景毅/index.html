@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div class="fix" hidden></div>
+	<div class="fixLeftbtn"></div>
 	<div class="personal">
 		<div class="headPic"></div>
 		<ul>
@@ -51,7 +52,7 @@
 			</div>
 		</div>
 		<div class="content clearfix">
-			<div class="content-left" hidden>
+			<div class="content-left">
 				<div class="classify-title">开发</div>
 				<ul class="classify">
 					<li class="active"><a href="#">前端开发</a></li>
@@ -240,6 +241,63 @@
 		</div>
 	</div>
 	<script>
+		var leftBtn=function(){
+			this.leftBtn=document.getElementsByClassName('fixLeftbtn')[0];
+			this.conLeft=document.getElementsByClassName('content-left')[0];
+			this.conRight=document.getElementsByClassName('content-right')[0];
+			this.fix=document.getElementsByClassName('fix')[0];
+			this.header=document.getElementsByClassName('header')[0];
+			this.leftItem=document.querySelectorAll('.classify li');
+			this.iWidth = document.documentElement.clientWidth;
+
+			this.bindEle();
+			if (this.iWidth<800) {
+				this.bindPhone();
+			}
+		}
+		leftBtn.prototype={
+			bindPhone:function(){
+				var self=this;
+				for (var i = 0; i < this.leftItem.length; i++) {
+					this.leftItem[i].addEventListener('click',function(){
+						self.leftClose(self);
+					})
+				}
+			},
+			bindEle:function(){
+				var self=this;
+				this.leftBtn.addEventListener('click',function(){
+					if (this.style.left=='2rem') {
+						self.leftClose(self);
+					}else{
+						self.leftOpen(self);
+					}					
+				});
+				this.fix.addEventListener('click',function(){
+					self.leftClose(self);
+				})
+			},
+			leftClose:function(self){
+				self.leftBtn.style.left='0.01rem';
+				self.leftBtn.style.background='#D6D8DA url(img/btn_r.png) no-repeat center center';
+				self.leftBtn.style.marginLeft='0';
+				self.conLeft.style.left='-2rem';
+				self.header.style.transform=self.conRight.style.transform='translateX(0rem)';
+				self.fix.style.display='none';
+				self.fix.style.left='0rem';
+			},
+			leftOpen:function(self){
+				self.leftBtn.style.left='2rem';
+				self.leftBtn.style.background='url(img/btn_l.png) no-repeat center center';
+				self.leftBtn.style.marginLeft='-20px';
+				self.conLeft.style.left='0rem';
+				self.header.style.transform=self.conRight.style.transform='translateX(2rem)';
+				self.fix.style.display='block';
+				self.fix.style.left='2rem';
+			}
+		}
+
+
 		var tab=function(parent){
 			this.leftItem=parent.querySelectorAll('.classify li');
 			this.rightItem=parent.querySelectorAll('.content-right .dlp-item');
@@ -268,6 +326,7 @@
 				}
 			}
 		}
+
 
 		var comment=function(parent){
 			this.fix=document.getElementsByClassName('fix')[0];
@@ -322,6 +381,7 @@
 			}
 		}
 
+
 		var header = function(parent) {
 			this.winH=document.documentElement.clientHeight;
 			this.body=document.querySelector('.page');
@@ -333,14 +393,9 @@
 			this.headPic=parent.querySelector('.headPic');
 			this.hasComplete=true;
 
-			this.setting();
 			this.bindEle();
 		}
 		header.prototype={
-			setting:function(){
-				this.personal.style.height=this.winH+'px';
-				this.fix.style.height=this.winH+'px';
-			},
 			bindEle:function(){
 				var self=this;
 				this.loginbtn.addEventListener("click",function(){
@@ -378,6 +433,7 @@
 		new header(document.querySelector('.header'));
 		new comment(document.querySelector('.content-right'));
 		new tab(document.querySelector('.content'));
+		new leftBtn();
 	</script>
 </body>
 </html>
