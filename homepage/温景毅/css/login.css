@@ -18,7 +18,7 @@ body{
 	color: rgba(255, 255, 255, 0.5);
 }
 .login-box{
-	margin: 100px auto;
+	margin: 100px auto 0;
 	width: 6rem;
 	background-color: #fff;
 	border-radius: 5px;
@@ -91,12 +91,13 @@ body{
 	padding-top: 0.15rem;
 }
 .register-page li{
-	height:0.9rem;
+	height:0.7rem;
 }
 .register-page li span:first-child{
 	line-height: 0.4rem;
 }
 .register-page li .error{
+	font-size: 12px;
 	color:red;
 	padding-left: 1.7rem;
 }
