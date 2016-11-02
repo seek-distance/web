@@ -12,3 +12,6 @@ body{color:#666;background-color:#fff;font:12px/1.5 "微软雅黑",tahoma,arial,
 .clearfix:after{content:" ";clear:both; height:0; visibility:hidden;display:block;font-size:0;}
 clearfix{zoom:1;}
 a{text-decoration: none};
+body{font-size: 14px;}
+.l{float: left;}
+.r{float: right;}

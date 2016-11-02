@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章编辑</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/equal.css">
+	<link rel="stylesheet" href="frame/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="frame/wangEditor-2.1.22/dist/css/wangEditor.min.css">
+	<link rel="stylesheet" href="css/editor.css">
+	<script src='js/autoRem.js'></script>
+</head>
+<body style="font-size:14px;">
+	<div class="fix" hidden></div>
+	<div class="personal">
+		<div class="headPic"></div>
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">我的资料</a></li>
+			<li><a href="#">查看用户</a></li>
+			<li class="active"><a href="#">写文章</a></li>
+			<li><a href="#">新评论(<span>0</span>)</a></li>
+			<li><a href="#">新回复(<span>0</span>)</a></li>
+			<li><a href="#">退出</a></li>
+		</ul>
+	</div>
+	<div class="page">
+		<div class="memory">本地已保存</div>
+		<div class="header">
+			<a class="logo" href=''>WJY的笔记本</a>
+			<div class="phone">
+				<div class="haslogin">
+					<a href="#" class="headPic"></a>	
+				</div>
+			</div>
+		</div>
+
+		<p class="publish">发布文章</p>		
+		<div class="article-title">			
+			<input type="text" class="title-content" placeholder="请在此输入标题">
+			<p hidden class="title-error">标题不能少于10个汉字！</p>
+		</div>		
+		<div class="editor-parent">
+			<div id="editor" style="min-height:300px"></div>	
+		</div>
+		<div class="classify">
+			选择文章所属分类:
+			<div class="classify-result">
+				<span>java</span> / 
+				<span>java入门</span>
+				<i class="fa fa-angle-down"></i>
+				<ul class="classify-content">
+					<div>
+						<li class="classify-item">
+							<span>java</span>					
+							<i class="fa fa-angle-right"></i>
+							<ul class="item-content">
+								<li>java入门</li>
+								<li>struts</li>
+							</ul>
+						</li>
+						<li class="classify-item">
+							<span>前端</span>					
+							<i class="fa fa-angle-right"></i>
+							<ul class="item-content">
+								<li>html</li>
+								<li>css</li>
+								<li>js</li>
+							</ul>
+						</li>
+						<li class="classify-item">
+							<span>PHP</span>
+							<i class="fa fa-angle-right"></i>
+							<ul class="item-content">
+								<li>php入门</li>
+								<li>php进阶</li>
+								<li>php高级</li>
+							</ul>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div class="publish-btn clearfix">
+			<a href="">发布</a>
+		</div>
+		
+	</div>
+	
+	
+	<script src='frame/wangEditor-2.1.22/dist/js/lib/jquery-1.10.2.min.js'></script>
+	<script src="frame/wangEditor-2.1.22/dist/js/wangEditor.min.js"></script>
+	<script src='js/equal.js'></script>
+	<script src='js/editor.js'></script>
+</body>
+</html>

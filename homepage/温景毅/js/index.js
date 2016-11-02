@@ -88,60 +88,6 @@ tab.prototype={
 }
 
 
-var comment=function(parent){
-	this.fix=document.getElementsByClassName('fix')[0];
-	this.commentContent=parent.querySelectorAll('.comment-items .comment-content');
-	this.commentBtn=parent.querySelectorAll('.comment-btn');
-	this.commentAlert=document.getElementsByClassName('comment-alert')[0];
-	this.closebtn=document.getElementsByClassName('alert-close')[0];
-	this.publish=document.getElementsByClassName('publish')[0];
-	this.hasComplete=true;
-
-	
-	this.bindEle();
-}
-comment.prototype={
-	bindEle:function(){
-		var self=this;
-		for (var i = 0; i < this.commentBtn.length; i++) {
-			this.commentBtn[i].addEventListener('click',function(){
-				if(self.hasComplete){						
-					self.alertOpen(self);
-				}
-			});
-		};
-		for (var i = 0; i < this.commentContent.length; i++) {
-			this.commentContent[i].addEventListener('click',function(){
-				if(self.hasComplete){						
-					self.alertOpen(self);
-				}
-			});
-		};
-		this.fix.addEventListener('click',function(){
-			if(self.hasComplete){
-				self.alertClose(self);
-			}
-		});
-		this.closebtn.addEventListener('click',function(){
-			if(self.hasComplete){
-				self.fix.click();
-			}
-		})
-	},
-	alertOpen:function(self){
-		self.hasComplete=false;
-		self.fix.style.display='block';
-		self.commentAlert.style.top='50%';
-		self.hasComplete=true;
-	},
-	alertClose:function(self){
-		self.hasComplete=false;
-		self.commentAlert.style.top='-50%';
-		self.hasComplete=true; 
-	}
-}
-
-
 var header = function(parent) {
 	this.winH=document.documentElement.clientHeight;
 	this.body=document.querySelector('.page');
@@ -193,6 +139,5 @@ header.prototype={
 }
 
 new header(document.querySelector('.header'));
-new comment(document.querySelector('.content-right'));
 new tab(document.querySelector('.content'));
 new leftBtn();
