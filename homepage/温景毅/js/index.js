@@ -59,13 +59,21 @@ leftBtn.prototype={
 
 
 var tab=function(parent){
+	this.winH=document.documentElement.clientHeight;
+	this.header=document.getElementsByClassName('header')[0];
 	this.leftItem=parent.querySelectorAll('.classify li');
+	this.contentRight=parent.querySelector('.content-right');
 	this.rightItem=parent.querySelectorAll('.content-right .dlp-item');
 	this.hasComplete=true;
 
+	this.init();
 	this.bindEle();
 }
 tab.prototype={
+	init:function(){
+		var headerH=this.header.offsetHeight;
+		this.contentRight.style.minHeight=(this.winH-headerH)+'px';
+	},
 	bindEle:function(){
 		var self=this;
 		for (var i = 0; i < this.leftItem.length; i++) {

@@ -155,7 +155,53 @@ body{
 	background: #c0c0c0;
 	color: #000;
 }
-
+.about>li{
+	background: #fff;
+	margin: 20px 20px 35px 20px;
+	padding: 10px 10px 10px 5px;
+	border-radius: 5px;
+}
+.about .about-title{
+	width: 30%;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+	box-sizing: border-box;
+	color:#000;
+}
+.about .about-content{
+	width: 70%;
+	float: left;
+}
+.about .about-content p{
+	text-indent: 2em;
+}
+.about .about-content ol{
+	padding-left: 25px;
+}
+.feedback{
+	width: 90%;
+	margin: 1rem auto;
+}
+.feedback textarea,.feedback input,.feedback button{
+	width: 100%;
+}
+.feedback textarea{
+	height:100px;
+	padding:0.1rem;
+	margin-bottom: 0.1rem;
+}
+.feedback input{
+	height: 40px;
+	padding:0.1rem;
+	margin-bottom: 0.2rem;
+}
+.feedback button{
+	background: #458bc0;
+	border: 0px solid #000;
+	color:#fff;
+	height: 40px;
+}
 
 @media screen and (min-width:800px) {
 	.fixLeftbtn{

@@ -20,6 +20,7 @@
 			<li><a href="#">我的资料</a></li>
 			<li><a href="#">查看用户</a></li>
 			<li><a href="#">写文章</a></li>
+			<li><a href="#">查询反馈</a></li>
 			<li><a href="#">新评论(<span>0</span>)</a></li>
 			<li><a href="#">新回复(<span>0</span>)</a></li>
 			<li><a href="#">退出</a></li>
@@ -50,22 +51,22 @@
 		</div>
 		<div class="content clearfix">
 			<div class="content-left">
-				<div class="classify-title">
-					<i class="fa fa-gavel" aria-hidden="true"></i>
-					开发
-				</div>
 				<ul class="classify">
+					<div class="classify-title">
+						<i class="fa fa-gavel" aria-hidden="true"></i>
+						开发
+					</div>
 					<li class="active"><a href="#">前端开发</a></li>
 					<li><a href="#">java开发</a></li>
 					<li><a href="#">php开发</a></li>
-				</ul>
-				<div class="about-title">
-					<i class="fa fa-user" aria-hidden="true"></i>
-					关于
-				</div>
-				<ul class="about">
-					<li><a href="#">查询反馈</a></li>
-					<li><a href="#">关于我们</a></li>				
+					<div class="about-title">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						关于
+					</div>
+					<li><a href="#">反馈</a></li>
+					<li><a href="#">前端</a></li>
+					<li><a href="#">后台</a></li>
+					<li><a href="#">关于网站</a></li>			
 				</ul>
 			</div>
 			<div class="content-right">
@@ -156,6 +157,107 @@
 				</div>
 				<div class="dlp-item" hidden>
 					php开发
+				</div>
+				<div class="dlp-item" hidden>
+					<div class="feedback">
+						<textarea placeholder="请输入反馈内容"></textarea>
+						<input type="text" placeholder="留个名吧（选填）">
+						<button>提交</button>
+					</div>
+				</div>
+				<div class="dlp-item" hidden>
+					<ul class="about">
+						<li class="clearfix">
+							<span class="about-title">姓名：</span>
+							<span class="about-content">蔡仕凯</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">QQ：</span>
+							<span class="about-content">792195223</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">github：</span>
+							<a class="about-content" target="_blank" href="https://github.com/seek-distance">https://github.com/seek-distance</a>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">邮箱：</span>
+							<span class="about-content">13060561583@qq.com</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">常用语言：</span>
+							<span class="about-content">html，css，js，ng</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">基本信息：</span>
+							<span class="about-content">仲恺农业工程学院/信科院</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dlp-item" hidden>
+					<ul class="about">
+						<li class="clearfix">
+							<span class="about-title">姓名：</span>
+							<span class="about-content">温景毅（Paul）</span>
+						</li class="clearfix">
+						<li class="clearfix">
+							<span class="about-title">微信：</span>
+							<span class="about-content">792195223</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title" href="#">github：</span>
+							<a class="about-content" href="https://github.com/gh-paulwen" target="_blank">https://github.com/gh-paulwen</a>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">email：</span>
+							<span class="about-content">wen229267643@gmail.com</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">常用语言：</span>
+							<span class="about-content">java，c/cpp</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">基本信息：</span>
+							<span class="about-content">大三学生（2016-2017），现就读于仲恺农业工程学院，信息科学与技术学院，计算机科学与技术专业,准菜鸟程序猿一枚。</span>
+						</li>
+					</ul>
+				</div>
+				<div class="dlp-item" hidden>
+					<ul class="about">
+						<li class="clearfix">
+							<span class="about-title">网站的名字</span>
+							<span class="about-content">WJY的笔记本，WJY是我名字的首字母。而笔记本则是这个网站的准确定位，这就是我的笔记本，同时显得老实，谦逊。</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">域名的选择</span>
+							<span class="about-content">www.wengjingyi.tech ， wengjingyi是我名字的全拼，选择.top后缀完全是因为便宜。</span>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">本网站的github地址</span>			
+							<a class="about-content" href="https://github.com/gh-paulwen/yiblog" target="_blank" >https://github.com/gh-paulwen/yiblog</a>
+						</li>
+						<li class="clearfix">
+							<span class="about-title">个人观点</span>
+							<span class="about-content">
+								<p>这个网站是用ssh框架所搭建的一个记录学习笔记的东西，由于自己的前端水平的确是菜，所以页面看起来不是那么好看（怪自己不太会审美，总之简洁就好）。有需要的话，后期可能会找个bootstrap的模板套上算了。</p>
+								<p>搭这个网站是大二末期做数据库课程设计的时候产生的想法，目的主要有一下几个：</p>
+								<ol>
+									<li>检验自己的学习成果。</li>
+									<li>用于记下自己的学习笔记，学了这么久发现自己并没有做学习笔记，这是一个bug。</li>
+									<li>回顾，整理以前所学知识。</li>
+									<li>希望认识到更多志同道合的人吧。</li>
+									<li>对自己会是一种激励。带着充实这个博客的心，我想我会更有动力去学习更多的东西。</li>
+									<li>练一下文笔和表达。这的确是一大短板。</li>
+								</ol>
+							</span>	
+						</li>
+						<li class="clearfix">
+							<span class="about-title">大三老鸟的内心想法</span>
+							<span class="about-content">
+								<p>大学（我想说我所在的学校），很坑的就是学校所设的课程实用性真的不强（如组成原理，电路等），对于参加工作帮助不大，尤其是大学毕业之后都忘光了。实用的要数，c/c++，数据库等。但是老师都是教点皮毛而已，真是"师傅带进门，修行靠个人"。</p>
+								<p>我之所以能搭建这个网站，全都是自学的，虽然并不是很完善很合理，但是能满足记笔记，分享这些知识的需求。未来，自己也一定会不断努力，学习更多的知识、技能，才可以在大四找份好实习，毕业后找份好工。</p>
+							</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
