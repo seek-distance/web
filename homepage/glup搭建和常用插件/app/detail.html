@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="dist/css/all.min.css">
+</head>
+<body>
+	<div class="fix" hidden></div>	
+	<div class="comment-alert">
+		<p class="alert-head">
+			<span class="alert-close l">关闭</span>
+			评论
+			<span class="publish r">发表</span>
+		</p>
+		<div class="comment-content">
+			<textarea></textarea>
+		</div>		
+	</div>
+	<div class="personal">
+		<div class="headPic"></div>
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">我的资料</a></li>
+			<li><a href="#">查看用户</a></li>
+			<li><a href="#">写文章</a></li>
+			<li><a href="#">新评论(<span>0</span>)</a></li>
+			<li><a href="#">新回复(<span>0</span>)</a></li>
+			<li><a href="#">退出</a></li>
+		</ul>
+	</div>
+	<div class="page">
+		<div class="header">
+			<a class="logo" href=''>WJY的笔记本</a>
+			<div class="phone">
+				<div class="unlogin">
+					<a class="login" href="#">登录</a>/
+					<a class="register" href="#">注册</a>
+				</div>
+				<div class="haslogin" hidden>
+					<a href="#" class="headPic"></a>	
+				</div>
+			</div>
+		</div>
+		<div class="detail">
+			<div class="detail-left">
+				<div class="detail-content">
+					<h1 class="detail-title">装饰 decorator，网上的资源比较少。记录一下</h1>
+					<div class="dc-profile clearfix">
+						<span class="spacer l">5天前</span>
+						<span class="spacer l">30浏览</span>
+						<a class="spacer l" href="#">1评论</a>
+						<a class="editor r" href="#">编辑</a>
+					</div>
+					<p>比如有两个module，A和B。module B依赖于moduleA，module B上有个service Mail，提供两个方法设定setReceiver（收件人） 和 setBody （发件人），在module B上应用Mail服务，如果想增加抄送人，就可以在Mail上装饰（扩展）一个方法addCC。</p>
+					<p>Moudle A</p>
+					<pre>
+						<code>
+	var Mail=function(){ 
+		this.receiver='';
+	 	this.body=''; 
+	 	this.cc=[]; 
+	} 
+	Mail.prototype={ 
+	 	setReceiver:function(receiver){
+	 		this.receiver=receiver; 
+	 	}, 
+	 	setBody:function(body){ 
+	 		this.body=body; 
+	 	} 
+	}; 
+	angular.module('A',[]).service('Mail',Mail);
+						</code>
+					</pre>
+					<p>Module B</p>
+					<pre>
+						<code>
+	angular.module('B',['A']).config(function($provide){ 
+		$provide.decorator('Mail',function($delegate){ 
+			$delegate.addCC=function(cc){ 
+				this.cc.push(cc); 
+			}; 
+			return $delegate; 
+		}) 
+	})
+	.controller('test',function($scope){ 
+		Mail.addCC('csk'); 
+		console.log(Mail) 
+	});
+						</code>
+					</pre>
+				</div>
+				<hr>
+				<div class="comment">
+					<div class="comment-name">
+						<span class="comment-icon l"></span>
+						<span class="comment-name l">心向远方</span>
+					</div>
+					<textarea class="comment-content"></textarea>
+					<div class="clearfix">
+						<button class="r comment-btn">评论</button>
+					</div>
+				</div>
+				<div class="all-comment">
+					<div class="comment-title">
+						全部评论
+						<span class="comment-num">
+							<i>4</i>条
+						</span>						
+					</div>
+					<div class="comment-items">
+						<div class="comment-item">
+							<div class="comment-person">
+								<a href="#" class="pic l"></a>
+								<div class="comment-content">
+									<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+								</div>				
+							</div>
+							<div class="replay">
+								<div class="replay-item">
+									<a href="#" class="pic l"></a>
+									<div class="comment-content">
+										<a href="#" class="first-name">心向远方</a> 回复
+										<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+									</div>
+								</div>
+								<div class="replay-item">
+									<a href="#" class="pic l"></a>
+									<div class="comment-content">
+										<a href="#" class="first-name">渡过</a> 回复
+										<a href="#" class="first-name">心向远方</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+									</div>
+								</div>				
+							</div>	
+						</div>
+						<div class="comment-item">
+							<div class="comment-person">
+								<a href="#" class="pic l"></a>
+								<div class="comment-content">
+									<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+								</div>				
+							</div>
+							<div class="replay">
+								<div class="replay-item">
+									<a href="#" class="pic l"></a>
+									<div class="comment-content">
+										<a href="#" class="first-name">心向远方</a> 回复
+										<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+									</div>
+								</div>
+								<div class="replay-item">
+									<a href="#" class="pic l"></a>
+									<div class="comment-content">
+										<a href="#" class="first-name">渡过</a> 回复
+										<a href="#" class="first-name">心向远方</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+									</div>
+								</div>				
+							</div>	
+						</div>
+						<div class="comment-item">
+							<div class="comment-person">
+								<a href="#" class="pic l"></a>
+								<div class="comment-content">
+									<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+								</div>				
+							</div>
+						</div>
+						<div class="comment-item">
+							<div class="comment-person">
+								<a href="#" class="pic l"></a>
+								<div class="comment-content">
+									<a href="#" class="first-name">渡过</a>：有效果. 如果需要转换node_modules下的模块文件, 需要 给transform加上选项 {global:true} 或者 在模块的package.json里
+								</div>				
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src='dist/js/all.min.js'></script>
+</body>
+</html>

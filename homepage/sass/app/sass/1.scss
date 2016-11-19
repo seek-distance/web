@@ -1,0 +1,124 @@
+$blue:#1875e7;
+div{
+	color: $blue;
+}
+
+$directive: left;
+.warpper{
+	border-#{$directive}-radius: 5px;
+}
+
+$var:0.1;
+.test1{
+	margin: (14px / 2);
+	top: 50px + 10px;
+	right: $var * 100%;
+}
+
+div{
+	h1{
+		color:red;
+	}
+}
+
+p{
+	border:{
+		color:red;
+		style:solid;
+	}
+}
+
+.test2{
+	&:hover{
+		color:#fff;
+	}
+	&:after{
+		content:'';
+		clear:both;
+		display:block;
+	}
+}
+
+.class1{
+	border: 1px solid #ddd;
+}
+.class2{
+	@extend .class1;
+	font-size:14px;
+}
+
+%test2{
+	display:flex;
+	color:red;
+}
+.test3{
+	@extend %test2;
+	font:{
+		size:14px;
+		weight:bold;
+	}
+}
+
+@mixin left{
+	float:left;
+	margin-left:10px;
+}
+.test4{
+	@include left;
+}
+@mixin right($value:10px){
+	float:right;
+	margin-right:$value;
+}
+a{
+	@include right(20px);
+}
+@mixin rounded($radius:10px){
+	border-radius:$radius;
+	-moz-border-radius:$radius;
+	-webkit-border-radius:$radius;
+}
+ul li{
+	@include rounded(5px);
+}
+@mixin box-shadows($shadow...){
+	box-shadow:$shadow;
+}
+div{
+	@include box-shadows(0 0 5px #333,1px 5px #ccc);
+}
+
+p{
+	@if 12 + 2 == 14{
+		color:#fff;
+	}@else{
+		color:#000;
+	}
+}
+
+@for $i from 1 to 10{
+	.border-#{$i}{
+		border: #{$i}px solid blue;
+	}
+}
+
+$j:6;
+@while $j>0{
+	.item-#{$j}{
+		width: 4px * $j;
+	}
+	$j:$j - 2;
+}
+
+@each $member in a,b,c,d{
+	.#{$member}{
+		background: url("img/#{$member}.jpg");
+	}
+}
+
+@function double($n){
+	@return $n*2;
+}
+#sidebar{
+	width: double(5px);
+}
