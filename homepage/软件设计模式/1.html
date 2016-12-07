@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            {'num': 100,'free': false,'start': 1,'end': 100},
+
+            {'num': 150,'free': true,'start': 101,'end': 250},
+            {'num': 100,'free': true,'start': 251,'end': 350},
+            {'num': 100,'free': true,'start': 351,'end': 450},
+
+            {'num': 150,'free': false,'start': 451,'end': 600},
+            {'num': 50,'free': false,'start': 601,'end': 650},
+
+            {'num': 100,'free': true,'start': 651,'end': 750},
+            {'num': 250,'free': true,'start': 751,'end': 1000},
+        ];
+
+        var arr1=[
+            {'num': 100,'free': false,'start': 1,'end': 100},
+
+            {'num': 350,'free': true,'start': 101,'end': 450},
+
+            {'num': 150,'free': false,'start': 451,'end': 600},
+            {'num': 50,'free': false,'start': 601,'end': 650},
+
+            {'num': 350,'free': true,'start': 651,'end': 1000},
+        ];
+
+        var newarr=[];
+        for (var i = 0; i < arr.length; i++) {
+            if(arr[i].free){
+                if (newarr[newarr.length - 1].free) {
+                    newarr[newarr.length - 1].num += arr[i].num;
+                    newarr[newarr.length - 1].end = arr[i].end;
+                }else{
+                    newarr.push(arr[i]);
+                }
+            }else{
+                newarr.push(arr[i]);
+            }
+        }
+        console.log(newarr);
+    </script>
+</body>
+</html>

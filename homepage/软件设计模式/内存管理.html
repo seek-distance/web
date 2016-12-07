@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding-left: 50px;
+    }
+    
+    .total {
+        color: red;
+    }
+    /*样式结束*/
+    </style>
+    <script src="https://cdn.bootcss.com/angular.js/1.3.20/angular.js"></script>
+</head>
+
+<body ng-app='app' ng-controller='ctr'>
+    假设系统有1000kb的空间，采用最先适应分配算法进行分配空间
+    <br>
+    <br>
+    <div style="height: 30px;width: 400px">
+        <input ng-model="addNum" type="text" style="height:37px;float: left;width: 300px" placeholder="输入你的进程的所占空间大小" />
+        <button ng-disabled="!addNum" ng-click="add(addNum)" class="btn btn-success" style="float:left;border-radius: 0">分配</button><br><br>
+        <p class="text-warning" style="text-align: center;" ng-bind="warning"></p>
+    </div>
+    <br>
+    <br>
+    <div style="width: 500px;background: #ebf6f8;height: 30px">
+        <div ng-repeat="(key, val) in arr" style="text-align: center;overflow: hidden;float:left;height: 30px;width: {{val.num/2 + 'px'}};background: {{val.color}}">{{val.num}}</div>
+    </div>
+    <br>
+    <ol>
+        <li ng-repeat='(key, val) in arr' style="width: 350px;height:35px;line-height: 35px">
+            {{val | change}}
+            <span style="color:red;cursor:pointer;float: right;" ng-show="!val.free" ng-click='remove(key)'>X</span>
+        </li>
+    </ol>
+    <script>
+    var app = angular.module('app', []);
+    app.controller('ctr', function($scope,$filter) {
+        $scope.colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
+        $scope.warning="";
+        $scope.arr = [
+            {'num': 1000,'free': true,'start': 1,'end': 1000,'color': '#ebf6f8'},
+        ];
+        $scope.arr = $filter("changeArr")($scope.arr);
+
+        $scope.fun=function(i){
+            if ($scope.arr[i].free) {
+                return "default";
+            }else{
+                var rand = parseInt(Math.random() * 10);
+                return "color" + rand;
+            }            
+        }
+
+        $scope.remove = function(i) {
+            $scope.warning=""; 
+            $scope.arr[i].free = true;
+            $scope.arr = $filter("changeArr")($scope.arr);
+        }
+
+        $scope.add = function(addNum){
+            $scope.warning=""; 
+            addNum = parseInt(addNum);
+            for (var i = 0; i < $scope.arr.length; i++) {
+                var index = i%10;
+                if ($scope.arr[i].free) {
+                    if($scope.arr[i].num > addNum){
+                        var gap = $scope.arr[i].num - addNum;
+                        var unfree = {
+                            'num': addNum,
+                            'free': false,
+                            'start': $scope.arr[i].start,
+                            'end': $scope.arr[i].start - 1 + addNum,
+                            'color': $scope.colors[index]
+                        };
+                        var free = {
+                            'num': $scope.arr[i].num - addNum,
+                            'free': true,
+                            'start': $scope.arr[i].start + addNum,
+                            'end': $scope.arr[i].end,
+                            'color': '#ebf6f8'
+                        }
+                        $scope.arr.splice(i,1,unfree,free);
+                        $scope.arr = $filter("changeArr")($scope.arr);
+                        break;
+                        //$scope.arr[i].num = addNum;
+                    }else if($scope.arr[i].num == addNum){
+                        $scope.arr[i].free = false;
+                        $scope.arr[i].color = $scope.colors[index];
+                        $scope.arr = $filter("changeArr")($scope.arr);
+                        break;
+                    }
+                }
+                if (i == $scope.arr.length-1) {
+                    $scope.warning="已经没有足够的空间了"; 
+                }                            
+            }
+        }
+    })
+
+    app.filter('change', function() {
+        return function(val) {
+            if (val.free) {
+                var result = val.num + "kb 空闲"
+            } else {
+                var result = val.num + "kb 被占用"
+            }
+            result += "，开始于" + val.start + "，结束于" + val.end;
+            return result;
+        }
+    })
+
+    app.filter("changeArr",function(){
+        return function(arr){
+            var newarr=[];
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i].free){
+                    arr[i].color = '#ebf6f8';
+                    if (newarr.length - 1 >= 0 && newarr[newarr.length - 1].free) {
+                        newarr[newarr.length - 1].num += arr[i].num;
+                        newarr[newarr.length - 1].end = arr[i].end;
+                    }else{
+                        newarr.push(arr[i]);
+                    }
+                }else{
+                    newarr.push(arr[i]);
+                }
+            }
+            return newarr;
+        }
+    })
+    </script>
+</body>
+
+</html>

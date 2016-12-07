@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>适配器模式</title>
+    <style>
+      * { margin:0;padding:0;box-sizing:border-box;}
+
+    </style>
+  </head>
+  <body>
+      
+    <script>
+        function binarySearch(arr,findData){
+            var start=0;
+            var end=arr.length-1;
+            while(start <= end){
+                var center = Math.floor((end + start) / 2);
+                if (arr[center] == findData) {
+                    return '在数组中的第'+ (center+1) +'个';
+                }
+                if (findData > arr[center]) {
+                    start = center;
+                }else{
+                    end = center;
+                }
+            }
+        }
+        function quickSort(arr){            
+            if(arr.length <= 1){ return arr; }
+            var centerIndex = Math.ceil(arr.length/2);
+            var centerNum = arr[centerIndex-1];
+            var left = [];
+            var right = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < centerNum) {
+                    left.push(arr[i]);
+                }else if(arr[i] > centerNum){
+                    right.push(arr[i]);
+                }
+            }
+            return quickSort(left).concat([centerNum], quickSort(right));
+        }
+
+        var DataOperation = function(arr,number) {
+            
+        };
+        DataOperation.prototype = {
+            sort:function(arr){
+                console.log(quickSort(arr));
+            },
+            search:function(arr,number){
+                console.log(binarySearch(arr,number));
+            }
+        }
+        function fun(){
+            var d = new DataOperation();
+            return d;
+        }
+        var arr=[9,8,3,77,66,99];
+        console.log("原数组 "+arr);
+        
+        console.log("排序后数组");
+        fun().sort(arr);
+
+        console.log("查找77在原数组中的位置");
+        fun().search(arr,77);
+    </script>
+  </body>
+</html>
+

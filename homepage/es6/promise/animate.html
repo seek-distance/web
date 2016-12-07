@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise</title>
+	<style>
+		div{
+			height:100px;
+			width: 100px;
+			background: black;
+			border-radius: 50%;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="anim"></div>
+	<script>
+		function getStyle(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr];
+			}else{
+				return getComputedStyle(obj,false)[attr];
+			}
+		}		
+		function my(selector){
+			let b=new _my(selector);
+			return b;
+		}
+		let _my=function(selector){
+			this.ele=document.querySelector(selector);
+		}
+		_my.prototype.animate=function(obj,delay=1000){
+			console.log(1)
+			let self=this;
+			let promise = new Promise(function(resolve,reject){
+				for(let prop in obj){
+					let oldVal = parseInt(getStyle(self.ele,prop));
+					let a = (obj[prop] - oldVal)/(delay/10);
+					let timer = setInterval(function(){
+						if(parseInt(oldVal) != obj[prop]){
+							self.ele.style[prop] = oldVal + a + 'px';
+							oldVal = parseFloat(self.ele.style[prop]);
+						}else{
+							self.ele.style[prop] = obj[prop] + 'px';
+							clearInterval(timer);
+						}
+					},10)								
+				}
+				setTimeout(function(){
+					resolve();
+					reject();
+				},delay);
+			})
+			return promise;
+		}
+		my('div').animate({height:200,width:200},5000).then(function(){
+			return my('div').animate({left:100}, 3000)
+		}).then(function(){
+			return my('div').animate({top: 100}, 2000)
+		});
+	</script>
+</body>
+</html>
