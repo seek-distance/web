@@ -2,7 +2,7 @@
 	var iWidth = document.documentElement.clientWidth;
 	console.log(iWidth);
 	if(iWidth<800){
-		var iFontSize = iWidth/6.4;/*目前用得多的是除以16*/		
+		var iFontSize = iWidth/7.5;	
 	}else{
 		var iFontSize = 100;
 	}

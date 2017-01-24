@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比例尺</title>
+    <style>
+        .axis path,.axis line{
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+        }
+        .axis text{
+            font-family: sans-serif;
+            font-size: 11px;
+        }
+    </style>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+    <svg width="300" height="300"></svg>
+
+    <script>
+        var dataset=[1.2,2.3,1.9,1.5,3.3];
+        var min=d3.min(dataset);
+        var max=d3.max(dataset);
+
+        //比例尺
+        var linear=d3.scale.linear()
+                .domain([0,max])
+                .range([0,300]);
+        var linear1=d3.scale.linear()
+                .domain([0,5])
+                .range([0,150]);
+        //坐标轴
+        var axis = d3.svg.axis().scale(linear).orient("bottom").ticks(7);
+        var axis1 = d3.svg.axis().scale(linear1).orient("left").ticks(4);
+
+        var svg=d3.select('svg');
+        var rectHeight=25;
+
+        svg.selectAll('rect')
+            .data(dataset)
+            .enter()
+            .append('rect')
+            .attr('x',20)
+            .attr('y',function(d,i){
+                return i * rectHeight;
+            })
+            .attr('width',function(d){
+                return linear(d);
+            })
+            .attr('height',rectHeight-2)
+            .attr('fill',"steelblue");
+        
+        //axis(svg.append('g'));
+        svg.append('g')
+            .attr('class','axis')
+            .attr('transform','translate(20,130)')
+            .call(axis);
+        svg.append('g').attr('class','axis').attr('transform','translate(20,1)').call(axis1);
+    </script>    
+
+</body>
+</html>

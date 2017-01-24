@@ -5,7 +5,7 @@ var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-var endTime=new Date(2016,6,7,15,30,20);
+var endTime=new Date(2016,11,16,15,30,20);
 var lastTime=0;
 var lastHour,lastMinute,lastSeconds;
 
