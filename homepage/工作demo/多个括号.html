@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多个括号</title>
+</head>
+
+<body>
+    <script>
+    /*var sum=function(){
+    			this.result=0;
+    			this.add().apply(this,arguments);
+    		    return this.add;
+    		}
+    		sum.prototype.add=function(){ 
+    			for(var i=0;i<arguments.length;i++){
+    				this.result+=arguments[i];
+    		    }
+    			
+    			return this.add;
+    		}
+    		console.log((new sum(1,2))(1));*/
+    /*console.log(s(1)(2));
+    function s(i){
+    	var a=1;
+    	console.log(i)
+    	return s;
+    }*/
+    function add() {
+        var sum = 0,
+            i, len;
+        for (i = 0, len = arguments.length; i < len; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+    var currying = function(fn) {
+        var _args = [];
+
+        return function cb() {
+            if (arguments.length === 0) {
+                var _argsc = _args.slice(0);
+                _args = [];
+                return fn.apply(this, _argsc);
+            }
+
+            Array.prototype.push.apply(_args, arguments);
+
+            return cb;
+        }
+    }
+
+    var curryingAdd = currying(add);
+
+    console.log(curryingAdd(1)(2)(3)(4)()); // 10
+
+    var add321 = curryingAdd(3)(2, 1);
+    </script>
+</body>
+
+</html>
