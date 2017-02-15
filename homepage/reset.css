@@ -10,4 +10,4 @@ q:before,q:after{content:;}
 abbr,acronym{border:0;}
 body{color:#666;background-color:#fff;font:12px/1.5 "微软雅黑",tahoma,arial,'Hiagino Sans GB',宋体,sans-serif;}
 .clearfix:after{content:" ";clear:both; height:0; visibility:hidden;display:block;font-size:0;}
-clearfix{zoom:1;}
+.clearfix{zoom:1;}
