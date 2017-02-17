@@ -57,6 +57,15 @@
     console.log(curryingAdd(1)(2)(3)(4)()); // 10
 
     var add321 = curryingAdd(3)(2, 1);
+
+
+    function foo(){
+        getName=function(){
+            alert(1);
+        }
+        return this;
+    }
+
     </script>
 </body>
 
