@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq</title>
+</head>
+<body>
+	<div id='test'>123</div>
+
+	<script src="my$.js"></script>
+	<script>
+		document.querySelector('#test').onclick=function(){
+			console.log(this instanceof Object);
+		}
+	</script>
+</body>
+</html>

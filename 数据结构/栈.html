@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>栈</title>
+</head>
+
+<body>
+    <script>
+    function Stack() {
+        this.dataStore = [];
+        this.top = 0;
+        this.push = push;
+        this.pop = pop;
+        this.peek = peek;
+        this.clear = clear;
+        this.size = size;
+    }
+
+    //进栈
+    function push(ele) {
+        this.dataStore[this.top++] = ele;
+    }
+
+    //获取栈顶元素
+    function peek() {
+        return this.dataStore[this.top - 1];
+    }
+
+    //出栈  返回新的栈顶元素
+    function pop() {
+        return this.dataStore[--this.top];
+    }
+
+    //清空栈内元素
+    function clear() {
+        this.dataStore.length = 0;
+        this.top = 0;
+    }
+
+    //获取栈的长度
+    function size() {
+        return this.top;
+    }
+
+
+    function mulBase(num, base) {
+        var s = new Stack();
+        while (num > 0) {
+        	console.log(num)
+            s.push(num % base);
+            num = num / base;
+        }
+        var result = "";
+        while (s.size() > 0) {
+            result += s.pop();
+        }
+        return result;
+    }
+
+    var s = mulBase(32, 2);
+    </script>
+</body>
+
+</html>
