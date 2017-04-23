@@ -6,7 +6,7 @@
 	<script src='angular-1.3.0.js'></script>
 	<script src='angular-messages.min.js'></script>
 </head>
-<body ng-app="app">  
+<body ng-app="app" ng-controller="test">  
 	<h3>BootStrap Tab Component</h3>   
 	<tabs>     
 		<pane title="First Tab">       
@@ -15,7 +15,8 @@
 		<pane title="Second Tab">       
 			<div>This is the content of the second tab.</div>
 		</pane>   
-	</tabs> 
+	</tabs>
+	<div test data="{{data}}" first='{{data.first}}'></div>
 	<script>
 		angular.module('app', [])
 		.directive('tabs', function() {
@@ -53,6 +54,24 @@
 				template: '<div class="tab-pane" ng-class="{active: selected}" ng-transclude>' + '</div>',
 				replace: true
 			};
+		}).directive('test',function(){
+			return {
+				restrict:'AE',
+				link:function(scope,ele,attrs,tbsCtrl){
+					var data=JSON.parse(attrs.data);
+					scope.mysecond=data.second;
+				},
+				scope:{
+					first:'@'
+				},
+				template:'<div><p>{{first}}</p>'+'<p>{{mysecond}}</p></div>',
+				replace:true
+			}
+		}).controller('test',function($scope){
+			$scope.data={
+				first:'123',
+				second:'234'
+			}
 		})
 	</script>
 </body>
