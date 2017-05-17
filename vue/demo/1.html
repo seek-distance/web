@@ -1,0 +1,187 @@
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>vue实例</title>
+		<link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+		<script src="vue.js"></script>
+		<style>
+			body{
+				padding-left: 50px
+			}
+			.fade-enter-active, .fade-leave-active {
+			  transition: opacity 2s
+			}
+			.fade-enter, .fade-leave-active {
+			  opacity: 0
+			}
+			
+			.slide-fade-enter-active {
+				transition:2s;
+			}
+			.slide-fade-leave-active{
+				transition:2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+			}
+			.slide-fade-enter, .slide-fade-leave-active {
+			  opacity: 0;
+			  transform: translateX(10px);
+			}
+
+			.bounce-enter-active {
+				animation: bounce-in 2s;
+			}
+			.bounce-leave-active{
+				animation: bounce-out 2s;
+			}
+			@keyframes bounce-in{
+				0%{
+					transform: scale(0);
+				}
+				50%{
+					transform: scale(1.5);
+				}
+				100%{
+					transform: scale(1);
+				}
+			}
+			@keyframes bounce-out{
+				0%{
+					transform: scale(1);
+				}
+				50%{
+					transform: scale(1.5);
+				}
+				100%{
+					transform: scale(0);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+
+		<div id="app2">
+			<span v-bind:title="message">
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+		</div>
+
+		<div id="app3">
+			<p v-if="seen">现在你看到我了</p>
+		</div>
+
+		<div id="app4">
+			<ol>
+				<li v-for='tudo in tudos'>
+					{{tudo.text}}
+				</li>
+			</ol>
+		</div>
+
+		<div id="app5">
+			<p>{{message}}</p>
+			<button v-on:click='reverseMessage'>逆转消息</button>
+		</div>
+
+		<div id='app6'>
+			<p>{{message}}</p>
+			<input v-model="message" />
+		</div>
+
+		<div id="app7">
+			<ol>
+				<todo-item v-for='l in Lists' v-bind:todo='l'></todo-item>
+			</ol>
+		</div>
+
+		<div id="app8">
+			{{message | capitalize}}
+		</div>
+	
+		<div id="app9">
+			<p>Original message: "{{ message }}"</p>
+			<p>Computed reversed message: "{{ reversedMessage }}"</p>
+		</div>
+
+		<ul id='app10'>
+			<li v-for='n in evenNumbers'>{{n}}</li>
+			<a v-on:click.once='doThis'>只触发一次</a>
+		</ul>
+
+		<div id="example1">
+			<simple-counter></simple-counter>
+			<simple-counter></simple-counter>
+			<simple-counter></simple-counter>
+		</div>
+
+		<div id="example2">
+			<p>{{total}}</p>
+			<button-counter v-on:increment='increment1'></button-counter>
+			<button-counter v-on:increment='increment2'></button-counter>
+		</div>
+
+		<div id="app11">
+			<div v-bind:class="{active:isactive}" class="ab"></div>
+			<div v-bind:class='[a1,a2]'></div>
+		</div>
+
+		<div id="app12">
+			<div>我是父组件的标题</div>
+			<my-component>
+				<p>1</p>
+				<p>2</p>
+			</my-component>
+		</div>
+
+		<div id="app13">
+			<div class="parent">
+				<child>
+					<template scope="props">
+						<span>hellp form parent</span>
+						<span>{{props.text}}</span>
+					</template>
+				</child>
+			</div>
+		</div>
+
+		<div id="app14">
+			<test title='123'>
+				内容1
+			</test>
+			<test title='13'>
+				内容2
+			</test>
+		</div>
+
+		<div id="app15">
+			<component :is='currentView'></component>
+			<component1></component1>
+		</div>
+
+		<div id="app16">
+			<button v-on:click='show = !show'>toggle</button>
+			<transition name='fade'>
+				<p v-if='show'>123</p>
+			</transition>
+			<transition name='slide-fade'>
+				<p v-if='show'>234</p>
+			</transition>
+			<transition name='bounce'>
+				<p v-if="show">345</p>
+			</transition>
+		</div>
+
+		<div id="app17">
+			<button @click="show = !show">toggle</button>
+			<transition enter-active-class='animated tada' leave-active-class='animated bounceOutRight'>
+				<p v-if='show'>hello</p>
+			</transition>
+		</div>
+
+		<script src='1.js'></script>
+	</body>
+
+</html>
