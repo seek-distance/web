@@ -4,17 +4,13 @@ function Partition(r,first,end){
         //右扫描
         while(i<j && r[i]<=r[j])    j--;
         if(i<j){
-            let temp=r[i];
-            r[i]=r[j];
-            r[j]=temp;
+            [r[j],r[i]] = [r[i],r[j]];
             i++;
         }
         //左扫描
         while(i<j && r[i]<=r[j])    i++;
         if(i<j){
-            let temp=r[i];
-            r[i]=r[j];
-            r[j]=temp;
+            [r[j],r[i]] = [r[i],r[j]];
             j--;
         }
     }

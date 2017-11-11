@@ -23,7 +23,6 @@ function KnapSack(w, v, back) {
 
         }
     }
-    console.log(arr)
     return arr[col][back];
 }
 console.log(KnapSack([, 2, 2, 6, 5, 4], [, 6, 3, 5, 4, 6], 10))
